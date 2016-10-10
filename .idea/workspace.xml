@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c6af192e-5491-46b9-878e-13c755ec2c3f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Range/src/rangepackage/Range.java" afterPath="$PROJECT_DIR$/Range/src/rangepackage/Range.java" />
     </list>
     <ignored path="academit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,20 +24,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Range.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Range.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Range/src/rangepackage/Range.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <element signature="e#258#259#0" expanded="true" />
-                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#328#329#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainRange.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainRange.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Range/src/rangepackage/MainRange.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="594">
@@ -69,15 +70,15 @@
         <option value="$PROJECT_DIR$/Vector/src/HelloWorld.java" />
         <option value="$PROJECT_DIR$/Range/src/Range.java" />
         <option value="$PROJECT_DIR$/Range/src/rangepackage/MainRange.java" />
-        <option value="$PROJECT_DIR$/Range/src/rangepackage/Range.java" />
         <option value="$PROJECT_DIR$/Range2/src/range2package/Range2.java" />
         <option value="$PROJECT_DIR$/Range2/src/range2package/MainRange2.java" />
+        <option value="$PROJECT_DIR$/Range/src/rangepackage/Range.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="354" />
-    <option name="y" value="48" />
+    <option name="x" value="362" />
+    <option name="y" value="46" />
     <option name="width" value="1522" />
     <option name="height" value="1019" />
   </component>
@@ -498,12 +499,19 @@
       <option name="project" value="LOCAL" />
       <updated>1476108333555</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="First commit for Range">
+      <created>1476109222578</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1476109222578</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="354" y="48" width="1522" height="1019" extended-state="0" />
-    <editor active="false" />
+    <frame x="362" y="46" width="1522" height="1019" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -512,7 +520,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21908127" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286219" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25795054" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20624152" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -578,8 +586,8 @@
         <state relative-caret-position="330">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -652,22 +660,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Range/src/rangepackage/Range.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#314#315#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Range/src/rangepackage/MainRange.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Range/src/rangepackage/Range.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

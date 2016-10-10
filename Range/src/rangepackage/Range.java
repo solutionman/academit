@@ -2,7 +2,7 @@ package rangepackage;
 
 // Check is the number inside
 
-class Range {
+public class Range {
     private double from1;
     private double from2;
 
@@ -11,7 +11,7 @@ class Range {
         this.from2 = from2;
     }
 
-    boolean isInside(double number){
+    public boolean isInside(double number){
         return (number> from1 && number < from2);
     }
 }
