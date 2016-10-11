@@ -1,4 +1,4 @@
-package rangepackage;
+package RangeOfNumbers;
 
 // Main class for Range
 
@@ -18,7 +18,7 @@ public class MainRange {
         double numberForChecking = scanner.nextDouble();
 
         Range range = new Range(number1, number2);
-        if(range.isInside(numberForChecking)){
+        if (range.isInside(numberForChecking)) {
             System.out.println("The number for checking is in range.");
         } else {
             System.out.println("The number for checking is outside the range.");
