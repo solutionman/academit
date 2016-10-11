@@ -6,13 +6,14 @@ class Range {
     private double from1;
     private double from2;
 
-    Range(double from1, double from2) {
+    public Range(double from1, double from2) {
         this.from1 = from1;
         this.from2 = from2;
     }
 
     boolean isInside(double number) {
-        return (number > from1 && number < from2);
+        double epsilon = 0.00001;
+        return ((number > from1 || Math.abs(number - from1) < epsilon) && (number < from2 || Math.abs(number - from2 ) < epsilon));
     }
 
     double lengthOfInterval(){
