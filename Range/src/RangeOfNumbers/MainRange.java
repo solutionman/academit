@@ -23,5 +23,7 @@ public class MainRange {
         } else {
             System.out.println("The number for checking is outside the range.");
         }
+
+        System.out.println("The distance between first two numbers is: " + range.lengthOfInterval());
     }
 }

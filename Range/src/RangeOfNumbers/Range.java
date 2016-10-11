@@ -14,4 +14,9 @@ class Range {
     boolean isInside(double number) {
         return (number > from1 && number < from2);
     }
+
+    double lengthOfInterval(){
+        return Math.abs(Math.abs(from1) - Math.abs(from2));
+
+    }
 }
