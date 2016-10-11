@@ -19,11 +19,17 @@ public class MainRange {
 
         Range range = new Range(number1, number2);
         if (range.isInside(numberForChecking)) {
-            System.out.println("The number for checking is in range.");
+            System.out.printf("The number %f is in range.%n", numberForChecking);
         } else {
-            System.out.println("The number for checking is outside the range.");
+            System.out.printf("The number %f is outside the range.", numberForChecking);
         }
 
-        System.out.println("The distance between first two numbers is: " + range.lengthOfInterval());
+        System.out.println("The distance between first two numbers is: " + range.calcLengthOfInterval());
+
+        System.out.print("Now enter the number for second interval: ");
+        double secondInterval1 = scanner.nextDouble();
+
+        System.out.print("And another number for second interval: ");
+        double secondInterval2 = scanner.nextDouble();
     }
 }
