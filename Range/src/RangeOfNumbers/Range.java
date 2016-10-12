@@ -5,10 +5,14 @@ package RangeOfNumbers;
 class Range {
     private double from1;
     private double from2;
+    private double from3;
+    private double from4;
 
-    Range(double from1, double from2) {
+    Range(double from1, double from2, double from3, double from4) {
         this.from1 = from1;
         this.from2 = from2;
+        this.from3 = from3;
+        this.from4 = from4;
     }
 
     boolean isInside(double number) {
@@ -21,9 +25,30 @@ class Range {
 
     }
 
-    
+    double calcIntersectionOfIntervals(){
 
-    double calcIntersectionOfIntervals(double secondInterval1, double secondInterval2){
+        double firstIntervalBiggerNumber;
+        double firstIntervalLesserNumber;
+        double secondIntervalBiggerNumber;
+        double secondIntervalLesserNumber;
+
+        if(from1 > from2){
+            firstIntervalBiggerNumber = from1;
+            firstIntervalLesserNumber = from2;
+        // if from1 == from2 - it doesn't matter which sum we assign
+        } else {
+            firstIntervalBiggerNumber = from2;
+            firstIntervalLesserNumber = from1;
+        }
+
+        if(from3 > from4){
+            secondIntervalBiggerNumber = from3;
+            secondIntervalLesserNumber = from4;
+        } else {
+            secondIntervalBiggerNumber = from4;
+            secondIntervalLesserNumber = from3;
+        }
+
 
         return 1;
     }

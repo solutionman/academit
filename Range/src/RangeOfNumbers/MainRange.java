@@ -17,7 +17,13 @@ public class MainRange {
         System.out.print("And the number for checking: ");
         double numberForChecking = scanner.nextDouble();
 
-        Range range = new Range(number1, number2);
+        System.out.print("Now enter the number for second interval: ");
+        double secondInterval1 = scanner.nextDouble();
+
+        System.out.print("And another number for second interval: ");
+        double secondInterval2 = scanner.nextDouble();
+
+        Range range = new Range(number1, number2, secondInterval1, secondInterval2);
         if (range.isInside(numberForChecking)) {
             System.out.printf("The number %f is in range.%n", numberForChecking);
         } else {
@@ -26,10 +32,6 @@ public class MainRange {
 
         System.out.println("The distance between first two numbers is: " + range.calcLengthOfInterval());
 
-        System.out.print("Now enter the number for second interval: ");
-        double secondInterval1 = scanner.nextDouble();
 
-        System.out.print("And another number for second interval: ");
-        double secondInterval2 = scanner.nextDouble();
     }
 }
