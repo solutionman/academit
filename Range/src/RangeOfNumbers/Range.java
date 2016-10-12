@@ -25,6 +25,9 @@ class Range {
 
     }
 
+    double intersectLesserNumber;
+    double intersectBiggerNumber;
+
     double calcIntersectionOfIntervals(){
 
         double firstIntervalBiggerNumber;
@@ -49,7 +52,11 @@ class Range {
             secondIntervalLesserNumber = from3;
         }
 
+        if(firstIntervalLesserNumber < secondIntervalBiggerNumber && firstIntervalBiggerNumber > secondIntervalLesserNumber) {
+            intersectLesserNumber = secondIntervalLesserNumber;
+            intersectBiggerNumber = firstIntervalBiggerNumber;
+        }
 
-        return 1;
+        return -1;
     }
 }
