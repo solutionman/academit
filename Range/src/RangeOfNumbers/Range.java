@@ -55,13 +55,13 @@ class Range {
         // case 1
         // -----------
         //       -----------
-        if(firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber) {
+        if(firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber && firstIntervalBiggerNumber > secondIntervalLesserNumber) {
             intersectLesserNumber = secondIntervalLesserNumber;
             intersectBiggerNumber = firstIntervalBiggerNumber;
             // case 2
             //     --------------
             // -----------
-        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber) {
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber && firstIntervalLesserNumber < secondIntervalBiggerNumber) {
             intersectLesserNumber = firstIntervalLesserNumber;
             intersectBiggerNumber = secondIntervalBiggerNumber;
             // case 3
@@ -86,6 +86,9 @@ class Range {
             //           --------
             // -------
         } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber && firstIntervalLesserNumber > secondIntervalBiggerNumber) {
+            intersectLesserNumber = 0;
+            intersectBiggerNumber = 0;
+        } else {
             intersectLesserNumber = 0;
             intersectBiggerNumber = 0;
         }
