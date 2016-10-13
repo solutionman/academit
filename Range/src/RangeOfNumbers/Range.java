@@ -28,7 +28,7 @@ class Range {
     double intersectLesserNumber;
     double intersectBiggerNumber;
 
-    double calcIntersectionOfIntervals(){
+    void calcIntersectionOfIntervals(){
 
         double firstIntervalBiggerNumber;
         double firstIntervalLesserNumber;
@@ -52,11 +52,43 @@ class Range {
             secondIntervalLesserNumber = from3;
         }
 
-        if(firstIntervalLesserNumber < secondIntervalBiggerNumber && firstIntervalBiggerNumber > secondIntervalLesserNumber) {
+        // case 1
+        // -----------
+        //       -----------
+        if(firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber) {
             intersectLesserNumber = secondIntervalLesserNumber;
             intersectBiggerNumber = firstIntervalBiggerNumber;
+            // case 2
+            //     --------------
+            // -----------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber) {
+            intersectLesserNumber = firstIntervalLesserNumber;
+            intersectBiggerNumber = secondIntervalBiggerNumber;
+            // case 3
+            // -------------------
+            //     --------
+        } else if (firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber){
+            intersectLesserNumber = secondIntervalLesserNumber;
+            intersectBiggerNumber = secondIntervalBiggerNumber;
+            // case 4
+            //      --------
+            // -------------------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber){
+            intersectLesserNumber = firstIntervalLesserNumber;
+            intersectBiggerNumber = firstIntervalBiggerNumber;
+            // case 5
+            // -------
+            //           --------
+        } else if (firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber && firstIntervalBiggerNumber < secondIntervalLesserNumber){
+            intersectLesserNumber = 0;
+            intersectBiggerNumber = 0;
+            // case 6
+            //           --------
+            // -------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber && firstIntervalLesserNumber > secondIntervalBiggerNumber) {
+            intersectLesserNumber = 0;
+            intersectBiggerNumber = 0;
         }
 
-        return -1;
     }
 }
