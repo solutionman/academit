@@ -37,6 +37,13 @@ public class MainRange {
         System.out.printf("The distance between %.2f - %.2f is %.2f%n", number1, number2, range.calcLengthOfInterval());
 
         range.calcIntersectionOfIntervals();
-        System.out.printf("The intersection of %.2f - %.2f  and  %.2f - %.2f  is  %.2f - %.2f", number1, number2, secondInterval1, secondInterval2,  range.intersectLesserNumber,range.intersectBiggerNumber);
+        System.out.printf("The intersection of %.2f - %.2f  and  %.2f - %.2f  is  %.2f - %.2f%n", number1, number2, secondInterval1, secondInterval2,  range.intersectLesserNumber,range.intersectBiggerNumber);
+
+        range.calcUnionIntervals();
+        if(range.unionSecondIntervalLesserNumber == range.unionSecondIntervalBiggerNumber) {
+            System.out.printf("The union of intervals is %f - %f", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber);
+        } else {
+            System.out.printf("The union of intervals is %f - %f  and  %f - %f%n", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber, range.unionSecondIntervalLesserNumber, range.unionSecondIntervalBiggerNumber);
+        }
     }
 }

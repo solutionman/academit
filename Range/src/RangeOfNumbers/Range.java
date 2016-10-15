@@ -94,4 +94,75 @@ class Range {
         }
 
     }
+
+    double unionFirstIntervalLesserNumber;
+    double unionFirstIntervalBiggerNumber;
+    double unionSecondIntervalLesserNumber;
+    double unionSecondIntervalBiggerNumber;
+
+    void calcUnionIntervals(){
+        double firstIntervalBiggerNumber;
+        double firstIntervalLesserNumber;
+        double secondIntervalBiggerNumber;
+        double secondIntervalLesserNumber;
+
+        if(from1 > from2){
+            firstIntervalBiggerNumber = from1;
+            firstIntervalLesserNumber = from2;
+            // if from1 == from2 - it doesn't matter which sum we assign
+        } else {
+            firstIntervalBiggerNumber = from2;
+            firstIntervalLesserNumber = from1;
+        }
+
+        if(from3 > from4){
+            secondIntervalBiggerNumber = from3;
+            secondIntervalLesserNumber = from4;
+        } else {
+            secondIntervalBiggerNumber = from4;
+            secondIntervalLesserNumber = from3;
+        }
+
+        // case 1
+        // -----------
+        //       -----------
+        if(firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber) {
+            unionFirstIntervalLesserNumber = firstIntervalLesserNumber;
+            unionFirstIntervalBiggerNumber = secondIntervalBiggerNumber;
+            // case 2
+            //     --------------
+            // -----------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber) {
+            unionFirstIntervalLesserNumber = secondIntervalLesserNumber;
+            unionFirstIntervalBiggerNumber = firstIntervalBiggerNumber;
+            // case 3
+            // -------------------
+            //     --------
+        } else if (firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber){
+            unionFirstIntervalLesserNumber = firstIntervalLesserNumber;
+            unionFirstIntervalBiggerNumber = firstIntervalBiggerNumber;
+            // case 4
+            //      --------
+            // -------------------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber){
+            unionFirstIntervalLesserNumber = secondIntervalLesserNumber;
+            unionFirstIntervalBiggerNumber = secondIntervalBiggerNumber;
+            // case 5
+            // -------
+            //           --------
+        } else if (firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber && firstIntervalBiggerNumber < secondIntervalLesserNumber){
+            unionFirstIntervalLesserNumber = firstIntervalLesserNumber;
+            unionFirstIntervalBiggerNumber = firstIntervalBiggerNumber;
+            unionSecondIntervalLesserNumber = secondIntervalLesserNumber;
+            unionSecondIntervalBiggerNumber = secondIntervalBiggerNumber;
+            // case 6
+            //           --------
+            // -------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber && firstIntervalLesserNumber > secondIntervalBiggerNumber) {
+            unionFirstIntervalLesserNumber = firstIntervalLesserNumber;
+            unionFirstIntervalBiggerNumber = firstIntervalBiggerNumber;
+            unionSecondIntervalLesserNumber = secondIntervalLesserNumber;
+            unionSecondIntervalBiggerNumber = secondIntervalBiggerNumber;
+        }
+    }
 }
