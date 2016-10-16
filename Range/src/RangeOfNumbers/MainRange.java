@@ -41,9 +41,18 @@ public class MainRange {
 
         range.calcUnionIntervals();
         if(range.unionSecondIntervalLesserNumber == range.unionSecondIntervalBiggerNumber) {
-            System.out.printf("The union of intervals is %f - %f", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber);
+            System.out.printf("The union of intervals is %.2f - %.2f%n", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber);
         } else {
-            System.out.printf("The union of intervals is %f - %f  and  %f - %f%n", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber, range.unionSecondIntervalLesserNumber, range.unionSecondIntervalBiggerNumber);
+            System.out.printf("The union of intervals is %.2f - %.2f  and  %.2f - %.2f%n", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber, range.unionSecondIntervalLesserNumber, range.unionSecondIntervalBiggerNumber);
+        }
+
+        range.calcFirstMinusSecond();
+        if(range.firstMinusSecondLesserNumber == range.firstMinusSecondBigerNumber){
+            System.out.println("The first interval minus second: 0");
+        } else if(range.firstMinusSecondLesserNumber2 == range.firstMinusSecondBiggerNumber2){
+            System.out.printf("The first interval minus second: %.2f - %.2f", range.firstMinusSecondLesserNumber, range.firstMinusSecondBigerNumber);
+        } else {
+            System.out.printf("The first interval minus second: %.2f - %.2f  and %.2f - %.2f", range.firstMinusSecondLesserNumber, range.firstMinusSecondBigerNumber, range.firstMinusSecondLesserNumber2, range.firstMinusSecondBiggerNumber2);
         }
     }
 }

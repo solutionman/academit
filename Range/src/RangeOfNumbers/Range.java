@@ -165,4 +165,73 @@ class Range {
             unionSecondIntervalBiggerNumber = secondIntervalBiggerNumber;
         }
     }
+
+    double firstMinusSecondLesserNumber;
+    double firstMinusSecondBigerNumber;
+    double firstMinusSecondLesserNumber2;
+    double firstMinusSecondBiggerNumber2;
+
+    void calcFirstMinusSecond (){
+        double firstIntervalBiggerNumber;
+        double firstIntervalLesserNumber;
+        double secondIntervalBiggerNumber;
+        double secondIntervalLesserNumber;
+
+        if(from1 > from2){
+            firstIntervalBiggerNumber = from1;
+            firstIntervalLesserNumber = from2;
+            // if from1 == from2 - it doesn't matter which sum we assign
+        } else {
+            firstIntervalBiggerNumber = from2;
+            firstIntervalLesserNumber = from1;
+        }
+
+        if(from3 > from4){
+            secondIntervalBiggerNumber = from3;
+            secondIntervalLesserNumber = from4;
+        } else {
+            secondIntervalBiggerNumber = from4;
+            secondIntervalLesserNumber = from3;
+        }
+
+        // case 1
+        // -----------
+        //       -----------
+        if(firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber) {
+            firstMinusSecondLesserNumber = firstIntervalLesserNumber;
+            firstMinusSecondBigerNumber = secondIntervalLesserNumber;
+            // case 2
+            //     --------------
+            // -----------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber) {
+            firstMinusSecondLesserNumber = secondIntervalBiggerNumber;
+            firstMinusSecondBigerNumber = firstIntervalBiggerNumber;
+            // case 3
+            // -------------------
+            //     --------
+        } else if (firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber){
+            firstMinusSecondLesserNumber = firstIntervalLesserNumber;
+            firstMinusSecondBigerNumber = secondIntervalLesserNumber;
+            firstMinusSecondLesserNumber2 = secondIntervalBiggerNumber;
+            firstMinusSecondBiggerNumber2 = firstIntervalBiggerNumber;
+            // case 4
+            //      --------
+            // -------------------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber){
+            firstMinusSecondLesserNumber = 0;
+            firstMinusSecondBigerNumber = 0;
+            // case 5
+            // -------
+            //           --------
+        } else if (firstIntervalLesserNumber < secondIntervalLesserNumber && firstIntervalBiggerNumber < secondIntervalBiggerNumber && firstIntervalBiggerNumber < secondIntervalLesserNumber){
+            firstMinusSecondLesserNumber = firstIntervalLesserNumber;
+            firstMinusSecondBigerNumber = firstIntervalBiggerNumber;
+            // case 6
+            //           --------
+            // -------
+        } else if (firstIntervalLesserNumber > secondIntervalLesserNumber && firstIntervalBiggerNumber > secondIntervalBiggerNumber && firstIntervalLesserNumber > secondIntervalBiggerNumber) {
+            firstMinusSecondLesserNumber = firstIntervalLesserNumber;
+            firstMinusSecondBigerNumber = firstIntervalBiggerNumber;
+        }
+    }
 }
