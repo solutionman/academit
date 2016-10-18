@@ -2,6 +2,7 @@ package academit.artamonov2016.range.main;
 
 // Main class for Range
 
+import academit.artamonov2016.range.logic.IntervalLength;
 import academit.artamonov2016.range.logic.Range;
 import academit.artamonov2016.range.logic.IsInside;
 
@@ -41,14 +42,8 @@ public class MainRange {
 
         System.out.printf("Second interval %.2f - %.2f%n", secondInterval.lesserNumber, secondInterval.biggerNumber);
 
-        Range range = new Range(number1, number2, secondInterval1, secondInterval2);
-        if (range.isInside(numberForChecking)) {
-            System.out.printf("The number %.2f is between %.2f - %.2f%n", numberForChecking, number1, number2);
-        } else {
-            System.out.printf("The number %.2f is outside of interval %.2f - %.2f%n", numberForChecking, number1, number2);
-        }
-
-        System.out.printf("The distance between %.2f - %.2f is %.2f%n", number1, number2, range.calcLengthOfInterval());
+        double lengthOfFirstInterval = IntervalLength.calcLengthOfInterval(number1, number2);
+        System.out.printf("The distance between %.2f - %.2f is %.2f%n", number1, number2, lengthOfFirstInterval);
 
         range.calcIntersectionOfIntervals();
         System.out.printf("The intersection of %.2f - %.2f  and  %.2f - %.2f  is  %.2f - %.2f%n", number1, number2, secondInterval1, secondInterval2,  range.intersectLesserNumber,range.intersectBiggerNumber);

@@ -11,11 +11,6 @@ public class Range {
         this.from2 = from2;
     }
 
-    public boolean isInside(double number) {
-        double epsilon = 0.00001;
-        return ((number > from1 || Math.abs(number - from1) < epsilon) && (number < from2 || Math.abs(number - from2 ) < epsilon));
-    }
-
     public double calcLengthOfInterval(){
         return Math.abs(Math.abs(from1) - Math.abs(from2));
 
@@ -29,11 +24,6 @@ public class Range {
 
     public void calcIntersectionOfIntervals(){
 
-
-
-        double secondIntervalBiggerNumber;
-        double secondIntervalLesserNumber;
-
         if(from1 > from2){
             lesserNumber = from1;
             biggerNumber = from2;
@@ -41,14 +31,6 @@ public class Range {
         } else {
             lesserNumber = from2;
             biggerNumber = from1;
-        }
-
-        if(from3 > from4){
-            secondIntervalBiggerNumber = from3;
-            secondIntervalLesserNumber = from4;
-        } else {
-            secondIntervalBiggerNumber = from4;
-            secondIntervalLesserNumber = from3;
         }
 
         // case 1
