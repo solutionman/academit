@@ -13,23 +13,23 @@ public class MainRange {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter the first number of first interval: ");
-        double number1 = scanner.nextDouble();
+        double firstInterval1 = scanner.nextDouble();
 
         System.out.print("And second number of first interval: ");
-        double number2 = scanner.nextDouble();
+        double firstInterval2 = scanner.nextDouble();
 
-        Range firstInterval = new Range(number1, number2);
-        System.out.printf("First interval %.2f - %.2f%n", firstInterval.lesserNumber, firstInterval.biggerNumber);
+        Range firstInterval = new Range(firstInterval1, firstInterval2);
+        System.out.printf("First interval %.2f - %.2f%n", firstInterval.getFrom1(), firstInterval.getFrom2());
 
         System.out.print("And the number for checking in first interval: ");
         double numberForChecking = scanner.nextDouble();
 
-        boolean checking = IsInside.checkIsInsideInterval(firstInterval.lesserNumber, firstInterval.biggerNumber, numberForChecking);
+        boolean checking = IsInside.checkIsInsideInterval(firstInterval.getFrom1(), firstInterval.getFrom2(), numberForChecking);
 
-        if (checking){
-            System.out.printf("The %.2f is inside %.2f - %.2f%n", numberForChecking, number1, number2);
+        if (checking) {
+            System.out.printf("The %.2f is inside %.2f - %.2f%n", numberForChecking, firstInterval1, firstInterval2);
         } else {
-            System.out.printf("The %.2f is outside of %.2f - %.2f%n", numberForChecking, number1, number2);
+            System.out.printf("The %.2f is outside of %.2f - %.2f%n", numberForChecking, firstInterval1, firstInterval2);
         }
 
         System.out.print("Now enter the first number for second interval: ");
@@ -40,28 +40,12 @@ public class MainRange {
 
         Range secondInterval = new Range(secondInterval1, secondInterval2);
 
-        System.out.printf("Second interval %.2f - %.2f%n", secondInterval.lesserNumber, secondInterval.biggerNumber);
+        System.out.printf("Second interval %.2f - %.2f%n", secondInterval.getFrom1(), secondInterval.getFrom2());
 
-        double lengthOfFirstInterval = IntervalLength.calcLengthOfInterval(number1, number2);
-        System.out.printf("The distance between %.2f - %.2f is %.2f%n", number1, number2, lengthOfFirstInterval);
+        double lengthOfFirstInterval = IntervalLength.calcLengthOfInterval(firstInterval1, firstInterval2);
+        System.out.printf("The distance between %.2f - %.2f is %.2f%n", firstInterval1, firstInterval2, lengthOfFirstInterval);
 
-        range.calcIntersectionOfIntervals();
-        System.out.printf("The intersection of %.2f - %.2f  and  %.2f - %.2f  is  %.2f - %.2f%n", number1, number2, secondInterval1, secondInterval2,  range.intersectLesserNumber,range.intersectBiggerNumber);
+        //Range intersection = new Range();
 
-        range.calcUnionIntervals();
-        if(range.unionSecondIntervalLesserNumber == range.unionSecondIntervalBiggerNumber) {
-            System.out.printf("The union of intervals is %.2f - %.2f%n", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber);
-        } else {
-            System.out.printf("The union of intervals is %.2f - %.2f  and  %.2f - %.2f%n", range.unionFirstIntervalLesserNumber, range.unionFirstIntervalBiggerNumber, range.unionSecondIntervalLesserNumber, range.unionSecondIntervalBiggerNumber);
-        }
-
-        range.calcFirstMinusSecond();
-        if(range.firstMinusSecondLesserNumber == range.firstMinusSecondBigerNumber){
-            System.out.println("The first interval minus second: 0");
-        } else if(range.firstMinusSecondLesserNumber2 == range.firstMinusSecondBiggerNumber2){
-            System.out.printf("The first interval minus second: %.2f - %.2f", range.firstMinusSecondLesserNumber, range.firstMinusSecondBigerNumber);
-        } else {
-            System.out.printf("The first interval minus second: %.2f - %.2f  and %.2f - %.2f", range.firstMinusSecondLesserNumber, range.firstMinusSecondBigerNumber, range.firstMinusSecondLesserNumber2, range.firstMinusSecondBiggerNumber2);
-        }
     }
 }

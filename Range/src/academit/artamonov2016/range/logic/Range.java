@@ -38,7 +38,7 @@ public class Range {
         if(from1 > from2){
             firstIntervalBiggerNumber = from1;
             firstIntervalLesserNumber = from2;
-        // if from1 == from2 - it doesn't matter which sum we assign
+            // if from1 == from2 - it doesn't matter which sum we assign
         } else {
             firstIntervalBiggerNumber = from2;
             firstIntervalLesserNumber = from1;
