@@ -2,9 +2,7 @@ package academit.artamonov2016.range.main;
 
 // Main class for Range
 
-import academit.artamonov2016.range.logic.IntervalLength;
-import academit.artamonov2016.range.logic.Range;
-import academit.artamonov2016.range.logic.IsInside;
+import academit.artamonov2016.range.logic.*;
 
 import java.util.Scanner;
 
@@ -45,7 +43,15 @@ public class MainRange {
         double lengthOfFirstInterval = IntervalLength.calcLengthOfInterval(firstInterval1, firstInterval2);
         System.out.printf("The distance between %.2f - %.2f is %.2f%n", firstInterval1, firstInterval2, lengthOfFirstInterval);
 
-        //Range intersection = new Range();
+        Intersection intersection = new Intersection(firstInterval.getFrom1(), firstInterval.getFrom2(), secondInterval.getFrom1(), secondInterval.getFrom2());
+        System.out.printf("The intersection of first and second interval is %.2f - %.2f%n", intersection.getIntersectLesserNumber(), intersection.getIntersectBiggerNumber());
 
+        Union union = new Union(firstInterval.getFrom1(), firstInterval.getFrom2(), secondInterval.getFrom1(), secondInterval.getFrom2());
+
+        if(union.getUnionSecondIntervalBiggerNumber() == union.getUnionSecondIntervalLesserNumber()){
+            System.out.printf("The union of first and second interval %.2f - %.2f%n", union.getUnionFirstIntervalLesserNumber(), union.getUnionFirstIntervalBiggerNumber());
+        } else {
+            System.out.printf("The union of first and second interval %.2f - %.2f  and  %.2f - %.2f%n", union.getUnionFirstIntervalLesserNumber(), union.getUnionFirstIntervalBiggerNumber(), union.getUnionSecondIntervalLesserNumber(), union.getUnionSecondIntervalBiggerNumber());
+        }
     }
 }

@@ -8,7 +8,7 @@ public class IsInside {
 
         double epsilon = 0.0001;
 
-        return((firstNumber < checkNumber || Math.abs(firstNumber - checkNumber) < epsilon ) && (checkNumber < secondNumber && Math.abs(secondNumber - checkNumber) < epsilon));
+        return((firstNumber < checkNumber || Math.abs(firstNumber - checkNumber) < epsilon ) && (checkNumber < secondNumber || Math.abs(secondNumber - checkNumber) < epsilon));
 
     }
 }
