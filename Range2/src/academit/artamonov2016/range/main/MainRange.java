@@ -53,5 +53,13 @@ public class MainRange {
         } else {
             System.out.printf("The union of first and second interval %.2f - %.2f  and  %.2f - %.2f%n", union.getUnionFirstIntervalLesserNumber(), union.getUnionFirstIntervalBiggerNumber(), union.getUnionSecondIntervalLesserNumber(), union.getUnionSecondIntervalBiggerNumber());
         }
+
+        Difference firstMinusSecond = new Difference(firstInterval.getFrom1(), firstInterval.getFrom2(), secondInterval.getFrom1(), secondInterval.getFrom2());
+
+        if(firstMinusSecond.getFirstMinusSecondLesserNumber2() == firstMinusSecond.getFirstMinusSecondBiggerNumber2()){
+            System.out.printf("First interval minus second: %.2f - %.2f", firstMinusSecond.getFirstMinusSecondLesserNumber(), firstMinusSecond.getFirstMinusSecondBigerNumber());
+        } else {
+            System.out.printf("First interval minus second: %.2f - %.2f  and %.2f - %.2f", firstMinusSecond.getFirstMinusSecondLesserNumber(), firstMinusSecond.getFirstMinusSecondBigerNumber(), firstMinusSecond.getFirstMinusSecondLesserNumber2(), firstMinusSecond.getFirstMinusSecondBiggerNumber2());
+        }
     }
 }
