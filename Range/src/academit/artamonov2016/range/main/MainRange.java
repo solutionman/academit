@@ -18,7 +18,7 @@ public class MainRange {
 
         Range firstInterval = new Range(number1, number2);
 
-        System.out.printf("First interval %.2f - %.2f%n", firstInterval.getFrom1(), firstInterval.getFrom2());
+        System.out.printf("First interval %.2f - %.2f%n", firstInterval.getFrom(), firstInterval.getTo());
 
         System.out.print("And the number for checking in first interval: ");
         double numberForChecking = scanner.nextDouble();
@@ -39,7 +39,7 @@ public class MainRange {
 
         Range secondInterval = new Range (number3, number4);
 
-        System.out.printf("Second interval %.2f - %.2f%n", secondInterval.getFrom1(), secondInterval.getFrom2());
+        System.out.printf("Second interval %.2f - %.2f%n", secondInterval.getFrom(), secondInterval.getTo());
 
     }
 }

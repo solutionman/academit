@@ -3,34 +3,39 @@ package academit.artamonov2016.range.logic;
 // Object interval
 
 public class Range {
-    private double from1;
-    private double from2;
+    private double from;
+    private double to;
 
-    public Range(double from1, double from2) {
-        if(from1 < from2) {
-            this.from1 = from1;
-            this.from2 = from2;
+    public Range(double from, double to) {
+        if(from < to) {
+            this.from = from;
+            this.to = to;
         } else {
-            this.from2 = from1;
-            this.from1 = from2;
+            this.to = from;
+            this.from = to;
         }
     }
 
     public boolean isInside(double number) {
         double epsilon = 0.00001;
-        return ((number > from1 || Math.abs(number - from1) < epsilon) && (number < from2 || Math.abs(number - from2 ) < epsilon));
+        return ((number > from || Math.abs(number - from) < epsilon) && (number < to || Math.abs(number - to ) < epsilon));
     }
 
     public double getLength(){
-        return from2 - from1;
+        return to - from;
 
     }
 
-    public double getFrom1(){
-        return from1;
+    public double getFrom(){
+        return from;
     }
 
-    public double getFrom2(){
-        return from2;
+    public double getTo(){
+        return to;
+    }
+
+    public double calcIntersection() {
+        Range intersection = new Range(1, 3);
+        return 1;
     }
 }
