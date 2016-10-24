@@ -37,9 +37,14 @@ public class MainRange {
         System.out.print("And second number for second interval: ");
         double number4 = scanner.nextDouble();
 
-        Range secondInterval = new Range (number3, number4);
+        Range secondInterval = new Range(number3, number4);
 
         System.out.printf("Second interval %.2f - %.2f%n", secondInterval.getFrom(), secondInterval.getTo());
 
+
+        Range intersection = Range.getRangeObject(firstInterval, secondInterval);
+
+        System.out.printf("The intersection of first and second interval is %.2f - %.2f", intersection.getFrom(), intersection.getTo());
     }
 }
+

@@ -26,16 +26,48 @@ public class Range {
 
     }
 
+
+    public static Range getRangeObject(Range firstInterval, Range secondInterval) {
+
+        double intersectionFrom = 0;
+        double intersectionTo = 0;
+        //case 1
+        //  ------------
+        //          -------------
+        if(firstInterval.getFrom() < secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo()){
+            intersectionFrom = secondInterval.getFrom();
+            intersectionTo = firstInterval.getTo();
+
+            // case 2
+            //        ---------------
+            // ------------
+        } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo() ){
+            intersectionFrom = firstInterval.getFrom();
+            intersectionTo = secondInterval.getTo();
+            // case 3
+            // ----------------------
+            //       ---------
+        } else if(firstInterval.getFrom() < secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo()){
+            intersectionFrom = secondInterval.getFrom();
+            intersectionTo = secondInterval.getTo();
+            // case 4
+            //       ----------
+            //  ----------------------
+        } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo()){
+            intersectionFrom = firstInterval.getFrom();
+            intersectionTo = firstInterval.getTo();
+        }
+
+        Range intersection = new Range(intersectionFrom, intersectionTo);
+
+        return intersection;
+    }
+
     public double getFrom(){
         return from;
     }
 
     public double getTo(){
         return to;
-    }
-
-    public double calcIntersection() {
-        Range intersection = new Range(1, 3);
-        return 1;
     }
 }
