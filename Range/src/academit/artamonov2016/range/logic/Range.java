@@ -27,21 +27,21 @@ public class Range {
     }
 
 
-    public static Range getRangeObject(Range firstInterval, Range secondInterval) {
+    public static Range getIntersection (Range firstInterval, Range secondInterval) {
 
         double intersectionFrom = 0;
         double intersectionTo = 0;
         //case 1
         //  ------------
         //          -------------
-        if(firstInterval.getFrom() < secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo()){
+        if(firstInterval.getFrom() < secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo() && firstInterval.getTo() > secondInterval.getFrom()){
             intersectionFrom = secondInterval.getFrom();
             intersectionTo = firstInterval.getTo();
 
             // case 2
             //        ---------------
             // ------------
-        } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo() ){
+        } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo() && firstInterval.getFrom() < secondInterval.getTo()){
             intersectionFrom = firstInterval.getFrom();
             intersectionTo = secondInterval.getTo();
             // case 3
@@ -56,6 +56,18 @@ public class Range {
         } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo()){
             intersectionFrom = firstInterval.getFrom();
             intersectionTo = firstInterval.getTo();
+            // case 5
+            // ---------
+            //              -----------
+        } else if(firstInterval.getFrom() < secondInterval.getTo() && firstInterval.getTo() < secondInterval.getTo() && firstInterval.getTo() < secondInterval.getFrom()){
+            intersectionFrom = 0;
+            intersectionTo = 0;
+            // case 6
+            //              -----------
+            // ---------
+        } else if (firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo() && firstInterval.getFrom() > secondInterval.getTo()){
+            intersectionFrom = 0;
+            intersectionTo = 0;
         }
 
         Range intersection = new Range(intersectionFrom, intersectionTo);

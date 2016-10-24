@@ -42,9 +42,13 @@ public class MainRange {
         System.out.printf("Second interval %.2f - %.2f%n", secondInterval.getFrom(), secondInterval.getTo());
 
 
-        Range intersection = Range.getRangeObject(firstInterval, secondInterval);
+        Range intersection = Range.getIntersection(firstInterval, secondInterval);
 
-        System.out.printf("The intersection of first and second interval is %.2f - %.2f", intersection.getFrom(), intersection.getTo());
+        if(intersection.getFrom() != intersection.getTo()) {
+            System.out.printf("The intersection of first and second interval is %.2f - %.2f%n", intersection.getFrom(), intersection.getTo());
+        } else {
+            System.out.println("There is no intersection between first and second interval.");
+        }
     }
 }
 
