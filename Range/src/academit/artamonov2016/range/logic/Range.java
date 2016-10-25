@@ -7,7 +7,7 @@ public class Range {
     private double to;
 
     public Range(double from, double to) {
-        if(from < to) {
+        if (from < to) {
             this.from = from;
             this.to = to;
         } else {
@@ -18,68 +18,65 @@ public class Range {
 
     public boolean isInside(double number) {
         double epsilon = 0.00001;
-        return ((number > from || Math.abs(number - from) < epsilon) && (number < to || Math.abs(number - to ) < epsilon));
+        return ((number > from || Math.abs(number - from) < epsilon) && (number < to || Math.abs(number - to) < epsilon));
     }
 
-    public double getLength(){
+    public double getLength() {
         return to - from;
 
     }
 
 
-    public static Range getIntersection (Range firstInterval, Range secondInterval) {
+    public Range getIntersection(Range secondInterval) {
 
         double intersectionFrom = 0;
         double intersectionTo = 0;
         //case 1
         //  ------------
         //          -------------
-        if(firstInterval.getFrom() < secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo() && firstInterval.getTo() > secondInterval.getFrom()){
+        if (this.from < secondInterval.getFrom() && this.to < secondInterval.getTo() && this.to > secondInterval.getFrom()) {
             intersectionFrom = secondInterval.getFrom();
-            intersectionTo = firstInterval.getTo();
+            intersectionTo = this.to;
 
             // case 2
             //        ---------------
             // ------------
-        } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo() && firstInterval.getFrom() < secondInterval.getTo()){
-            intersectionFrom = firstInterval.getFrom();
+        } else if (this.from > secondInterval.getFrom() && this.to > secondInterval.getTo() && this.from < secondInterval.getTo()) {
+            intersectionFrom = this.from;
             intersectionTo = secondInterval.getTo();
             // case 3
             // ----------------------
             //       ---------
-        } else if(firstInterval.getFrom() < secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo()){
+        } else if (this.from < secondInterval.getFrom() && this.to > secondInterval.getTo()) {
             intersectionFrom = secondInterval.getFrom();
             intersectionTo = secondInterval.getTo();
             // case 4
             //       ----------
             //  ----------------------
-        } else if(firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() < secondInterval.getTo()){
-            intersectionFrom = firstInterval.getFrom();
-            intersectionTo = firstInterval.getTo();
+        } else if (this.from > secondInterval.getFrom() && this.to < secondInterval.getTo()) {
+            intersectionFrom = this.from;
+            intersectionTo = this.to;
             // case 5
             // ---------
             //              -----------
-        } else if(firstInterval.getFrom() < secondInterval.getTo() && firstInterval.getTo() < secondInterval.getTo() && firstInterval.getTo() < secondInterval.getFrom()){
-            intersectionFrom = 0;
-            intersectionTo = 0;
+        } else if (this.from < secondInterval.getTo() && this.to < secondInterval.getTo() && this.to < secondInterval.getFrom()) {
+            return null;
             // case 6
             //              -----------
             // ---------
-        } else if (firstInterval.getFrom() > secondInterval.getFrom() && firstInterval.getTo() > secondInterval.getTo() && firstInterval.getFrom() > secondInterval.getTo()){
-            intersectionFrom = 0;
-            intersectionTo = 0;
+        } else if (this.from > secondInterval.getFrom() && this.to > secondInterval.getTo() && this.from > secondInterval.getTo()) {
+            return null;
         }
 
-        Range intersection = new Range(intersectionFrom, intersectionTo);
 
-        return intersection;
+        return new Range(intersectionFrom, intersectionTo);
     }
 
-    public double getFrom(){
+    public double getFrom() {
         return from;
     }
 
-    public double getTo(){
+    public double getTo() {
         return to;
     }
 }
