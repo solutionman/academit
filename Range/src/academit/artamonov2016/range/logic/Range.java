@@ -2,6 +2,9 @@ package academit.artamonov2016.range.logic;
 
 // Object interval
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Range {
     private double from;
     private double to;
@@ -70,6 +73,36 @@ public class Range {
 
 
         return new Range(intersectionFrom, intersectionTo);
+    }
+
+    public Range[] getUnion1 (Range secondInterval){
+        //Range[] array = new Range[3];
+
+        if(1==1){
+            Range[] array = new Range[1];
+            return array;
+        }        else if(2==2){
+            Range[] array = new Range[3];
+            return array;
+        }else {
+            return null;
+        }
+
+    }
+
+    public List<Range> getUnion2 (Range secondInterval) {
+        List <Range> list = new ArrayList<Range>();
+
+        if(1==1){
+            list.add(new Range(1, 3));
+        }        else if(2==2){
+            list.add(new Range(2, 5));
+            list.add(new Range(3, 4));
+        } else {
+            return null;
+        }
+        //list.add
+        return list;
     }
 
     public double getFrom() {
