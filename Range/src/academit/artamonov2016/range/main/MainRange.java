@@ -49,6 +49,14 @@ public class MainRange {
         } else {
             System.out.println("There is no intersection between first and second interval.");
         }
+
+        Range[] union = firstInterval.getUnionArray(secondInterval);
+
+        if(union.length == 1) {
+            System.out.printf("The union of arrays %.2f - %.2f", union[1].getFrom(), union[1].getTo());
+        } else {
+            System.out.printf("The union of arrays %.2f - %.2f  and  %.2f - %.2f", union[1].getFrom(), union[1].getTo(), union[2].getFrom(), union[2].getTo());
+        }
     }
 }
 

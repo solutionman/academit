@@ -37,65 +37,69 @@ public class Range {
         //case 1
         //  ------------
         //          -------------
-        if (this.from < secondInterval.getFrom() && this.to < secondInterval.getTo() && this.to > secondInterval.getFrom()) {
-            intersectionFrom = secondInterval.getFrom();
+        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+            intersectionFrom = secondInterval.from;
             intersectionTo = this.to;
 
             // case 2
             //        ---------------
             // ------------
-        } else if (this.from > secondInterval.getFrom() && this.to > secondInterval.getTo() && this.from < secondInterval.getTo()) {
+        } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
             intersectionFrom = this.from;
-            intersectionTo = secondInterval.getTo();
+            intersectionTo = secondInterval.to;
             // case 3
             // ----------------------
             //       ---------
-        } else if (this.from < secondInterval.getFrom() && this.to > secondInterval.getTo()) {
-            intersectionFrom = secondInterval.getFrom();
-            intersectionTo = secondInterval.getTo();
+        } else if (this.from < secondInterval.from && this.to > secondInterval.to) {
+            intersectionFrom = secondInterval.from;
+            intersectionTo = secondInterval.to;
             // case 4
             //       ----------
             //  ----------------------
-        } else if (this.from > secondInterval.getFrom() && this.to < secondInterval.getTo()) {
+        } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
             intersectionFrom = this.from;
             intersectionTo = this.to;
             // case 5
             // ---------
             //              -----------
-        } else if (this.from < secondInterval.getTo() && this.to < secondInterval.getTo() && this.to < secondInterval.getFrom()) {
+        } else if (this.to < secondInterval.from) {
             return null;
             // case 6
             //              -----------
             // ---------
-        } else if (this.from > secondInterval.getFrom() && this.to > secondInterval.getTo() && this.from > secondInterval.getTo()) {
+        } else if (this.from > secondInterval.to) {
             return null;
         }
-
 
         return new Range(intersectionFrom, intersectionTo);
     }
 
-    public Range[] getUnion1 (Range secondInterval){
+    public Range[] getUnionArray(Range secondInterval) {
         //Range[] array = new Range[3];
 
-        if(1==1){
-            Range[] array = new Range[1];
-            return array;
-        }        else if(2==2){
+        //case 1
+        //  ------------
+        //          -------------
+        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+            Range[] unionArray = new Range[2];
+            unionArray[1].from = this.from;
+            unionArray[1].to = secondInterval.to;
+            return unionArray;
+        } else if (2 == 2) {
             Range[] array = new Range[3];
             return array;
-        }else {
+        } else {
             return null;
         }
 
     }
 
-    public List<Range> getUnion2 (Range secondInterval) {
-        List <Range> list = new ArrayList<Range>();
+    public List<Range> getUnion2(Range secondInterval) {
+        List<Range> list = new ArrayList<Range>();
 
-        if(1==1){
+        if (1 == 1) {
             list.add(new Range(1, 3));
-        }        else if(2==2){
+        } else if (2 == 2) {
             list.add(new Range(2, 5));
             list.add(new Range(3, 4));
         } else {
