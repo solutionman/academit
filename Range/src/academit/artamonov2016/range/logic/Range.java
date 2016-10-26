@@ -81,9 +81,10 @@ public class Range {
         //  ------------
         //          -------------
         if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
-            Range[] unionArray = new Range[2];
-            unionArray[1].from = this.from;
-            unionArray[1].to = secondInterval.to;
+            Range[] unionArray = new Range[1];
+            unionArray[0] = new Range(this.from, secondInterval.to);
+            //unionArray[0].from = this.from;
+            //unionArray[0].to = secondInterval.to;
             return unionArray;
         } else if (2 == 2) {
             Range[] array = new Range[3];
@@ -94,19 +95,19 @@ public class Range {
 
     }
 
-    public List<Range> getUnion2(Range secondInterval) {
-        List<Range> list = new ArrayList<Range>();
+    public List<Range> getUnionList(Range secondInterval) {
+        List<Range> unionList = new ArrayList<Range>();
 
-        if (1 == 1) {
-            list.add(new Range(1, 3));
+        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+            unionList.add(new Range(this.from, secondInterval.to));
         } else if (2 == 2) {
-            list.add(new Range(2, 5));
-            list.add(new Range(3, 4));
+            //unionList.add(new Range(2, 5));
+            //unionList.add(new Range(3, 4));
         } else {
             return null;
         }
         //list.add
-        return list;
+        return unionList;
     }
 
     public double getFrom() {
