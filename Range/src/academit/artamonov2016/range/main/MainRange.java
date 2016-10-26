@@ -53,12 +53,19 @@ public class MainRange {
 
         Range[] union = firstInterval.getUnionArray(secondInterval);
 
-        if(union.length == 1) {
-            System.out.printf("The union of arrays %.2f - %.2f", union[0].getFrom(), union[0].getTo());
+        if (union.length == 1) {
+            System.out.printf("The union of intervals %.2f - %.2f%n", union[0].getFrom(), union[0].getTo());
         } else {
-            System.out.printf("The union of arrays %.2f - %.2f  and  %.2f - %.2f", union[0].getFrom(), union[0].getTo(), union[1].getFrom(), union[1].getTo());
+            System.out.printf("The union of intervals %.2f - %.2f  and  %.2f - %.2f%n", union[0].getFrom(), union[0].getTo(), union[1].getFrom(), union[1].getTo());
         }
 
+        Range[] firstMinusSecond = firstInterval.getFirstMinusSecond(secondInterval);
+
+        if (firstMinusSecond.length == 1) {
+            System.out.printf("First interval minus second %.2f - %.2f", firstMinusSecond[0].getFrom(), firstMinusSecond[0].getTo());
+        } else {
+            System.out.printf("First interval minus second %.2f - %.2f  and  %.2f - %.2f", firstMinusSecond[0].getFrom(), firstMinusSecond[0].getTo(), firstMinusSecond[1].getFrom(), firstMinusSecond[1].getTo());
+        }
 
         /*
         List<Range> unionList = firstInterval.getUnionList(secondInterval);
