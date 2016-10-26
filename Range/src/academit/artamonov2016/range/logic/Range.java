@@ -86,9 +86,43 @@ public class Range {
             //unionArray[0].from = this.from;
             //unionArray[0].to = secondInterval.to;
             return unionArray;
-        } else if (2 == 2) {
-            Range[] array = new Range[3];
-            return array;
+            // case 2
+            //        ---------------
+            // ------------
+        } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
+            Range[] unionArray = new Range[1];
+            unionArray[0] = new Range(secondInterval.from, this.to);
+            return unionArray;
+            // case 3
+            // ----------------------
+            //       ---------
+        } else if (this.from < secondInterval.from && this.to > secondInterval.to) {
+            Range[] unionArray = new Range[1];
+            unionArray[0] = new Range(this.from, this.to);
+            return unionArray;
+            // case 4
+            //       ----------
+            //  ----------------------
+        } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
+            Range[] unionArray = new Range[1];
+            unionArray[0] = new Range(secondInterval.from, secondInterval.to);
+            return unionArray;
+            // case 5
+            // ---------
+            //              -----------
+        }else if(this.to < secondInterval.from) {
+            Range[] unionArray = new Range[2];
+            unionArray[0] = new Range(this.from, this.to);
+            unionArray[1] = new Range(secondInterval.from, secondInterval.to);
+            return unionArray;
+            // case 6
+            //              -----------
+            // ---------
+        }else if(secondInterval.to < this.from){
+            Range[] unionArray = new Range[2];
+            unionArray[0] = new Range(secondInterval.from, secondInterval.to);
+            unionArray[1] = new Range(this.from, this.to);
+            return unionArray;
         } else {
             return null;
         }
