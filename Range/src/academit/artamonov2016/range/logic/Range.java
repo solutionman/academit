@@ -80,38 +80,33 @@ public class Range {
         //  ------------
         //          -------------
         if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
-            Range[] unionArray = new Range[1];
-            unionArray[0] = new Range(this.from, secondInterval.to);
-            return unionArray;
+            Range unionArray = new Range(this.from, secondInterval.to);
+            return new Range[] {unionArray};
             // case 2
             //        ---------------
             // ------------
         } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
-            Range[] unionArray = new Range[1];
-            unionArray[0] = new Range(secondInterval.from, this.to);
-            return unionArray;
+            Range unionArray = new Range(secondInterval.from, this.to);
+            return new Range[] {unionArray};
             // case 3
             // ----------------------
             //       ---------
         } else if (this.from < secondInterval.from && this.to > secondInterval.to) {
-            Range[] unionArray = new Range[1];
-            unionArray[0] = new Range(this.from, this.to);
-            return unionArray;
+            Range unionArray = new Range(this.from, this.to);
+            return new Range[] {unionArray};
             // case 4
             //       ----------
             //  ----------------------
         } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
-            Range[] unionArray = new Range[1];
-            unionArray[0] = new Range(secondInterval.from, secondInterval.to);
-            return unionArray;
+            Range unionArray = new Range(secondInterval.from, secondInterval.to);
+            return new Range[] {unionArray};
             // case 5
             // ---------
             //              -----------
         } else if (this.to < secondInterval.from) {
-            Range[] unionArray = new Range[2];
-            unionArray[0] = new Range(this.from, this.to);
-            unionArray[1] = new Range(secondInterval.from, secondInterval.to);
-            return unionArray;
+            Range unionArray1 = new Range(this.from, this.to);
+            Range unionArray2 = new Range(secondInterval.from, secondInterval.to);
+            return new Range[] {unionArray1, unionArray2};
             // case 6
             //              -----------
             // ---------
