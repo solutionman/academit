@@ -34,10 +34,22 @@ public class Range {
 
         double intersectionFrom = 0;
         double intersectionTo = 0;
-        //case 1
-        //  ------------
-        //          -------------
-        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+
+        // case 5
+        // ---------
+        //              -----------
+        if (this.to < secondInterval.from) {
+            return null;
+            // case 6
+            //              -----------
+            // ---------
+        } else if (this.from > secondInterval.to) {
+            return null;
+
+            //case 1
+            //  ------------
+            //          -------------
+        } else if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
             intersectionFrom = secondInterval.from;
             intersectionTo = this.to;
 
@@ -59,16 +71,7 @@ public class Range {
         } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
             intersectionFrom = this.from;
             intersectionTo = this.to;
-            // case 5
-            // ---------
-            //              -----------
-        } else if (this.to < secondInterval.from) {
-            return null;
-            // case 6
-            //              -----------
-            // ---------
-        } else if (this.from > secondInterval.to) {
-            return null;
+
         }
 
         return new Range(intersectionFrom, intersectionTo);
@@ -76,47 +79,24 @@ public class Range {
 
     public Range[] getUnionArray(Range secondInterval) {
 
-        //case 1
-        //  ------------
-        //          -------------
-        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
-            Range unionArray = new Range(this.from, secondInterval.to);
-            return new Range[] {unionArray};
-            // case 2
-            //        ---------------
-            // ------------
-        } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
-            Range unionArray = new Range(secondInterval.from, this.to);
-            return new Range[] {unionArray};
-            // case 3
-            // ----------------------
-            //       ---------
-        } else if (this.from < secondInterval.from && this.to > secondInterval.to) {
-            Range unionArray = new Range(this.from, this.to);
-            return new Range[] {unionArray};
-            // case 4
-            //       ----------
-            //  ----------------------
-        } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
-            Range unionArray = new Range(secondInterval.from, secondInterval.to);
-            return new Range[] {unionArray};
-            // case 5
-            // ---------
-            //              -----------
-        } else if (this.to < secondInterval.from) {
+        // case 5
+        // ---------
+        //              -----------
+        if (this.to < secondInterval.from) {
             Range unionArray1 = new Range(this.from, this.to);
             Range unionArray2 = new Range(secondInterval.from, secondInterval.to);
-            return new Range[] {unionArray1, unionArray2};
+            return new Range[]{unionArray1, unionArray2};
             // case 6
             //              -----------
             // ---------
         } else if (secondInterval.to < this.from) {
-            Range[] unionArray = new Range[2];
-            unionArray[0] = new Range(secondInterval.from, secondInterval.to);
-            unionArray[1] = new Range(this.from, this.to);
-            return unionArray;
+            Range unionArray1 = new Range(secondInterval.from, secondInterval.to);
+            Range unionArray2 = new Range(this.from, this.to);
+            return new Range[]{unionArray1, unionArray2};
+
         } else {
-            return null;
+            Range unionArray = new Range(Math.min(this.from, secondInterval.from), Math.max(this.to, secondInterval.to));
+            return new Range[]{unionArray};
         }
 
     }
@@ -139,47 +119,45 @@ public class Range {
 */
 
     public Range[] getFirstMinusSecond(Range secondInterval) {
-        //case 1
-        //  ------------
-        //          -------------
-        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
-            Range[] firstMinusSecond = new Range[1];
-            firstMinusSecond[0] = new Range(this.from, secondInterval.from);
-            return firstMinusSecond;
+
+        // case 5
+        // ---------
+        //              -----------
+        if (this.to < secondInterval.from) {
+            Range firstMinusSecond = new Range(this.from, this.to);
+            return new Range[]{firstMinusSecond};
+            // case 6
+            //              -----------
+            // ---------
+        } else if (secondInterval.to < this.from) {
+            Range firstMinusSecond = new Range(this.from, this.to);
+            return new Range[]{firstMinusSecond};
+
+            //case 1
+            //  ------------
+            //          -------------
+        } else if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+            Range firstMinusSecond = new Range(this.from, secondInterval.from);
+            return new Range[]{firstMinusSecond};
             // case 2
             //        ---------------
             // ------------
         } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
-            Range[] firstMinusSecond = new Range[1];
-            firstMinusSecond[0] = new Range(secondInterval.to, this.to);
-            return firstMinusSecond;
+            Range firstMinusSecond = new Range(secondInterval.to, this.to);
+            return new Range[]{firstMinusSecond};
             // case 3
             // ----------------------
             //       ---------
         } else if (this.from < secondInterval.from && this.to > secondInterval.to) {
-            Range[] firstMinusSecond = new Range[2];
-            firstMinusSecond[0] = new Range(this.from, secondInterval.from);
-            firstMinusSecond[1] = new Range(secondInterval.to, this.to);
-            return firstMinusSecond;
+            Range firstMinusSecond1 = new Range(this.from, secondInterval.from);
+            Range firstMinusSecond2 = new Range(secondInterval.to, this.to);
+            return new Range[]{firstMinusSecond1, firstMinusSecond2};
             // case 4
             //       ----------
             //  ----------------------
         } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
             return null;
-            // case 5
-            // ---------
-            //              -----------
-        } else if (this.to < secondInterval.from) {
-            Range[] firstMinusSecond = new Range[1];
-            firstMinusSecond[0] = new Range(this.from, this.to);
-            return firstMinusSecond;
-            // case 6
-            //              -----------
-            // ---------
-        } else if (secondInterval.to < this.from) {
-            Range[] firstMinusSecond = new Range[1];
-            firstMinusSecond[0] = new Range(this.from, this.to);
-            return firstMinusSecond;
+
         } else {
             return null;
         }
