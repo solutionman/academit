@@ -63,15 +63,12 @@ public class MainRange {
 
         if (firstMinusSecond.length == 1) {
             System.out.printf("First interval minus second %.2f - %.2f", firstMinusSecond[0].getFrom(), firstMinusSecond[0].getTo());
-        } else {
+        } else if (firstMinusSecond.length == 2){
             System.out.printf("First interval minus second %.2f - %.2f  and  %.2f - %.2f", firstMinusSecond[0].getFrom(), firstMinusSecond[0].getTo(), firstMinusSecond[1].getFrom(), firstMinusSecond[1].getTo());
+        } else {
+            System.out.println("First interval minus second 0");
         }
 
-        /*
-        List<Range> unionList = firstInterval.getUnionList(secondInterval);
-
-        System.out.printf("The union of arrays %.2f - %.2f", unionList);
-        */
     }
 }
 
