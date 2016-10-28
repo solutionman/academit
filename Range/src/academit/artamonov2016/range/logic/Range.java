@@ -2,9 +2,6 @@ package academit.artamonov2016.range.logic;
 
 // Object interval
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Range {
     private double from;
     private double to;
@@ -49,14 +46,14 @@ public class Range {
             //case 1
             //  ------------
             //          -------------
-        } else if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+        } else if (this.from < secondInterval.from && this.to < secondInterval.to) {
             intersectionFrom = secondInterval.from;
             intersectionTo = this.to;
 
             // case 2
             //        ---------------
             // ------------
-        } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
+        } else if (this.from > secondInterval.from && this.to > secondInterval.to) {
             intersectionFrom = this.from;
             intersectionTo = secondInterval.to;
             // case 3
@@ -101,22 +98,6 @@ public class Range {
 
     }
 
-    /*
-    public List<Range> getUnionList(Range secondInterval) {
-        List<Range> unionList = new ArrayList<Range>();
-
-        if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
-            unionList.add(new Range(this.from, secondInterval.to));
-        } else if (2 == 2) {
-            //unionList.add(new Range(2, 5));
-            //unionList.add(new Range(3, 4));
-        } else {
-            return null;
-        }
-        //list.add
-        return unionList;
-    }
-*/
 
     public Range[] getFirstMinusSecond(Range secondInterval) {
 
@@ -136,13 +117,13 @@ public class Range {
             //case 1
             //  ------------
             //          -------------
-        } else if (this.from < secondInterval.from && this.to < secondInterval.to && this.to > secondInterval.from) {
+        } else if (this.from < secondInterval.from && this.to < secondInterval.to) {
             Range firstMinusSecond = new Range(this.from, secondInterval.from);
             return new Range[]{firstMinusSecond};
             // case 2
             //        ---------------
             // ------------
-        } else if (this.from > secondInterval.from && this.to > secondInterval.to && this.from < secondInterval.to) {
+        } else if (this.from > secondInterval.from && this.to > secondInterval.to) {
             Range firstMinusSecond = new Range(secondInterval.to, this.to);
             return new Range[]{firstMinusSecond};
             // case 3
@@ -156,10 +137,10 @@ public class Range {
             //       ----------
             //  ----------------------
         } else if (this.from > secondInterval.from && this.to < secondInterval.to) {
-            return null;
+            return new Range[]{};
 
         } else {
-            return null;
+            return new Range[]{};
         }
     }
 
