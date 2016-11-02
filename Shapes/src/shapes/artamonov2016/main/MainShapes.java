@@ -2,13 +2,44 @@
 
 package shapes.artamonov2016.main;
 
-import shapes.artamonov2016.logic.Shapes;
+import shapes.artamonov2016.logic.Circle;
+import shapes.artamonov2016.logic.Rectangle;
+import shapes.artamonov2016.logic.Square;
+import shapes.artamonov2016.logic.Triangle;
 
 public class MainShapes {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Shapes square = new Shapes(12);
+        Square square = new Square(12);
 
+        double widthOfSquare = square.getWidth();
+        System.out.println("The width of square is " + widthOfSquare);
+        double heightOfSquare = square.getHeight();
+        System.out.println("The height of square is " + heightOfSquare);
+
+        Triangle triangle = new Triangle(1, 1, 2, 3, 5, 6);
+
+        double widthOfTriangle = triangle.getWidth();
+        System.out.println("The width of triangle is " + widthOfTriangle);
+        double heightOfTriangle = triangle.getHeight();
+        System.out.println("The height of triangle is " + heightOfTriangle);
+
+        Rectangle rectangle = new Rectangle(12, 13);
+
+        double widthOfRectangle = rectangle.getWidth();
+        System.out.println("The width of rectangle is " + widthOfRectangle);
+        double heightOfRectangle = rectangle.getHeight();
+        System.out.println("The height of rectangle is " + heightOfRectangle);
+
+        Circle circle = new Circle(15);
+
+        double widthOfCircle = circle.getWidth();
+        System.out.println("The width of circle is " + widthOfCircle);
+        double heightOfCircle = circle.getHeight();
+        System.out.println("The height of circle is " + heightOfCircle);
+
+        //double widthOfTriangle = Shape.getTriangleWidth
+        /*
         Shapes triangle = new Shapes(1,1,2,3,3,2);
 
         Shapes rectangle = new Shapes(10, 13);
@@ -26,5 +57,7 @@ public class MainShapes {
 
         double perimeterOfRectangle = rectangle.getSquarePerimeter();
         System.out.println("The perimeter of rectangle is " + perimeterOfRectangle);
+        */
+
     }
 }
