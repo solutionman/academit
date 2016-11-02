@@ -27,4 +27,8 @@ public class Triangle implements Shape {
     public double getHeight(){
         return Math.max(Math.max(y1, y2), Math.max(y2, y3)) - Math.min(Math.min(y1, y2), Math.min(y2, y3));
     }
+
+    public double getArea (){
+        return Math.abs(x1 *(y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+    }
 }

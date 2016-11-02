@@ -16,6 +16,8 @@ public class MainShapes {
         System.out.println("The width of square is " + widthOfSquare);
         double heightOfSquare = square.getHeight();
         System.out.println("The height of square is " + heightOfSquare);
+        double areaOfSquare = square.getArea();
+        System.out.println("The area of square is " + areaOfSquare);
 
         Triangle triangle = new Triangle(1, 1, 2, 3, 5, 6);
 
@@ -23,6 +25,8 @@ public class MainShapes {
         System.out.println("The width of triangle is " + widthOfTriangle);
         double heightOfTriangle = triangle.getHeight();
         System.out.println("The height of triangle is " + heightOfTriangle);
+        double areaOfTriangle = triangle.getArea();
+        System.out.println("The area of triangle is " + areaOfTriangle);
 
         Rectangle rectangle = new Rectangle(12, 13);
 
@@ -30,6 +34,8 @@ public class MainShapes {
         System.out.println("The width of rectangle is " + widthOfRectangle);
         double heightOfRectangle = rectangle.getHeight();
         System.out.println("The height of rectangle is " + heightOfRectangle);
+        double areaOfRectangle = rectangle.getArea();
+        System.out.println("The area of rectangle is " + areaOfRectangle);
 
         Circle circle = new Circle(15);
 
@@ -37,6 +43,8 @@ public class MainShapes {
         System.out.println("The width of circle is " + widthOfCircle);
         double heightOfCircle = circle.getHeight();
         System.out.println("The height of circle is " + heightOfCircle);
+        double areaOfCircle = circle.getArea();
+        System.out.println("The area of circle is " + areaOfCircle);
 
         //double widthOfTriangle = Shape.getTriangleWidth
         /*

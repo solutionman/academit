@@ -16,4 +16,12 @@ public class Square implements Shape {
     public double getHeight(){
      return sideLength;
     }
+
+    public double getArea(){
+        return sideLength * sideLength;
+    }
+
+    public double getPerimeter(){
+        return sideLength * 4;
+    }
 }
