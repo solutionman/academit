@@ -2,13 +2,13 @@ package shapes.artamonov2016.logic;
 
 // Rectangle
 
-public class Rectangle implements Shape{
+public class Rectangle implements Shape {
 
     private double width;
     private double height;
 
-    public Rectangle(double sideLength1, double sideLength2){
-        if(sideLength1 > sideLength2){
+    public Rectangle(double sideLength1, double sideLength2) {
+        if (sideLength1 > sideLength2) {
             this.width = sideLength1;
             this.height = sideLength2;
         } else {
@@ -18,19 +18,19 @@ public class Rectangle implements Shape{
 
     }
 
-    public double getWidth(){
+    public double getWidth() {
         return width;
     }
 
-    public double getHeight(){
+    public double getHeight() {
         return height;
     }
 
-    public double getArea(){
+    public double getArea() {
         return width * height;
     }
 
-    public double getPerimeter(){
+    public double getPerimeter() {
         return width * 2 + height * 2;
     }
 }

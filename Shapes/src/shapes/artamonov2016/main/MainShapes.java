@@ -2,10 +2,7 @@
 
 package shapes.artamonov2016.main;
 
-import shapes.artamonov2016.logic.Circle;
-import shapes.artamonov2016.logic.Rectangle;
-import shapes.artamonov2016.logic.Square;
-import shapes.artamonov2016.logic.Triangle;
+import shapes.artamonov2016.logic.*;
 
 public class MainShapes {
     public static void main(String[] args) {
@@ -18,6 +15,8 @@ public class MainShapes {
         System.out.println("The height of square is " + heightOfSquare);
         double areaOfSquare = square.getArea();
         System.out.println("The area of square is " + areaOfSquare);
+        double perimeterOfSquare = square.getPerimeter();
+        System.out.println("The perimeter of square is " + perimeterOfSquare);
 
         Triangle triangle = new Triangle(1, 1, 2, 3, 5, 6);
 
@@ -27,6 +26,8 @@ public class MainShapes {
         System.out.println("The height of triangle is " + heightOfTriangle);
         double areaOfTriangle = triangle.getArea();
         System.out.println("The area of triangle is " + areaOfTriangle);
+        double perimeterOfTriangle = triangle.getPerimeter();
+        System.out.println("The perimeter of triangle is " + perimeterOfTriangle);
 
         Rectangle rectangle = new Rectangle(12, 13);
 
@@ -36,6 +37,8 @@ public class MainShapes {
         System.out.println("The height of rectangle is " + heightOfRectangle);
         double areaOfRectangle = rectangle.getArea();
         System.out.println("The area of rectangle is " + areaOfRectangle);
+        double perimeterOfRectangle = rectangle.getPerimeter();
+        System.out.println("The perimeter of rectangle is " + perimeterOfRectangle);
 
         Circle circle = new Circle(15);
 
@@ -45,6 +48,12 @@ public class MainShapes {
         System.out.println("The height of circle is " + heightOfCircle);
         double areaOfCircle = circle.getArea();
         System.out.println("The area of circle is " + areaOfCircle);
+        double perimeterOfCircle = circle.getPerimeter();
+        System.out.println("The perimeter of circle is " + perimeterOfCircle);
+
+
+        Shape[] arrayOfFigures = {square, };
+
 
         //double widthOfTriangle = Shape.getTriangleWidth
         /*

@@ -1,27 +1,26 @@
 package shapes.artamonov2016.logic;
 
 
-
 public class Square implements Shape {
     private double sideLength;
 
-    public Square(double sideLength){
+    public Square(double sideLength) {
         this.sideLength = sideLength;
     }
 
-    public double getWidth(){
+    public double getWidth() {
         return sideLength;
     }
 
-    public double getHeight(){
-     return sideLength;
+    public double getHeight() {
+        return sideLength;
     }
 
-    public double getArea(){
+    public double getArea() {
         return sideLength * sideLength;
     }
 
-    public double getPerimeter(){
+    public double getPerimeter() {
         return sideLength * 4;
     }
 }
