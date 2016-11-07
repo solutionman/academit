@@ -7,15 +7,9 @@ public class Rectangle implements Shape {
     private double width;
     private double height;
 
-    public Rectangle(double sideLength1, double sideLength2) {
-        if (sideLength1 > sideLength2) {
-            this.width = sideLength1;
-            this.height = sideLength2;
-        } else {
-            this.width = sideLength2;
-            this.height = sideLength1;
-        }
-
+    public Rectangle(double width, double height) {
+            this.width = width;
+            this.height = height;
     }
 
     public double getWidth() {

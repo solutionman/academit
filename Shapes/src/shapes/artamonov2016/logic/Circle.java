@@ -10,15 +10,15 @@ public class Circle implements Shape {
     }
 
     public double getWidth() {
-        return radius;
+        return radius * 2;
     }
 
     public double getHeight() {
-        return radius;
+        return radius * 2;
     }
 
     public double getArea() {
-        return Math.PI * radius;
+        return Math.PI * Math.pow(radius, 2);
     }
 
     public double getPerimeter(){
