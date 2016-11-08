@@ -52,8 +52,17 @@ public class MainShapes {
         System.out.println("The perimeter of circle is " + perimeterOfCircle);
 
 
-        Shape[] arrayOfFigures = {square, };
+        Shape[] arrayOfFigures = {square, triangle, rectangle, circle};
 
+        double biggerArea = 0;
+        for(int i = 0; i < arrayOfFigures.length; ++i){
+            if(biggerArea < arrayOfFigures[i].getArea()){
+                biggerArea = arrayOfFigures[i].getArea();
+            }
+        }
+
+        System.out.println("The figure with bigger area is " + biggerArea);
+        
 
 
     }
