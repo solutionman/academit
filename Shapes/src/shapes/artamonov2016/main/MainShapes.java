@@ -55,15 +55,30 @@ public class MainShapes {
         Shape[] arrayOfFigures = {square, triangle, rectangle, circle};
 
         double biggerArea = 0;
+        String figureWithBiggerArea = "";
         for(int i = 0; i < arrayOfFigures.length; ++i){
             if(biggerArea < arrayOfFigures[i].getArea()){
                 biggerArea = arrayOfFigures[i].getArea();
+                figureWithBiggerArea = arrayOfFigures[i].toString();
             }
         }
 
-        System.out.println("The figure with bigger area is " + biggerArea);
-        
+        System.out.printf("The figure with bigger area is %s and its area is %f%n", figureWithBiggerArea, biggerArea);
 
+        double biggerPerimeter = 0;
+        double secondBiggerPerimeter = 0;
+        String figureWithBiggerPerimeter = "";
+        String figureWithSecondBigerPerimeter = "";
+        for(int i = 0 ; i < arrayOfFigures.length; ++i){
+            if(biggerPerimeter < arrayOfFigures[i].getPerimeter()){
+                secondBiggerPerimeter = biggerPerimeter;
+                biggerPerimeter = arrayOfFigures[i].getPerimeter();
+                figureWithSecondBigerPerimeter = figureWithBiggerPerimeter;
+                figureWithBiggerPerimeter = arrayOfFigures[i].toString();
+            }
+        }
+
+        System.out.printf("The figure with second bigger perimeter is %s and its perimeter is %f", figureWithSecondBigerPerimeter, secondBiggerPerimeter);
 
     }
 }
