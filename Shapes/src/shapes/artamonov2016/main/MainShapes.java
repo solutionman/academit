@@ -18,7 +18,7 @@ public class MainShapes {
         double perimeterOfSquare = square.getPerimeter();
         System.out.println("The perimeter of square is " + perimeterOfSquare);
 
-        Triangle triangle = new Triangle(1, 1, 2, 3, 5, 6);
+        Triangle triangle = new Triangle(1, 1, 2, 3, 3, 2);
 
         double widthOfTriangle = triangle.getWidth();
         System.out.println("The width of triangle is " + widthOfTriangle);
