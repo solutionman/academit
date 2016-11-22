@@ -4,6 +4,10 @@ package shapes.artamonov2016.main;
 
 import shapes.artamonov2016.logic.*;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class MainShapes {
     public static void main(String[] args) {
 
@@ -78,7 +82,25 @@ public class MainShapes {
             }
         }
 
-        System.out.printf("The figure with second bigger perimeter is %s and its perimeter is %f", figureWithSecondBigerPerimeter, secondBiggerPerimeter);
+        System.out.printf("The figure with second bigger perimeter is %s and its perimeter is %f%n", figureWithSecondBigerPerimeter, secondBiggerPerimeter);
 
+
+        // finally it works!!!
+
+
+        Arrays.sort(arrayOfFigures, new Comparator<Shape>() {
+            @Override
+            public int compare(Shape o1, Shape o2) {
+                return Double.compare( o1.getPerimeter(), o2.getPerimeter() );
+            }
+        });
+        /*
+        for(int i = 0; i < arrayOfFigures.length; ++i){
+            System.out.println(arrayOfFigures[i].getPerimeter());
+        }
+        */
+        System.out.printf("The figure with second biggest perimeter is %f" , arrayOfFigures[arrayOfFigures.length - 2].getPerimeter());
     }
 }
+
+
