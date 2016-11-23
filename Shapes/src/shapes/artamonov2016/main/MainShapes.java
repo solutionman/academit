@@ -87,7 +87,6 @@ public class MainShapes {
 
         // finally it works!!!
 
-
         Arrays.sort(arrayOfFigures, new Comparator<Shape>() {
             @Override
             public int compare(Shape o1, Shape o2) {
