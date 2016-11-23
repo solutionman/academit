@@ -60,8 +60,8 @@ public class MainShapes {
 
         double biggerArea = 0;
         String figureWithBiggerArea = "";
-        for(int i = 0; i < arrayOfFigures.length; ++i){
-            if(biggerArea < arrayOfFigures[i].getArea()){
+        for (int i = 0; i < arrayOfFigures.length; ++i) {
+            if (biggerArea < arrayOfFigures[i].getArea()) {
                 biggerArea = arrayOfFigures[i].getArea();
                 figureWithBiggerArea = arrayOfFigures[i].toString();
             }
@@ -73,8 +73,8 @@ public class MainShapes {
         double secondBiggerPerimeter = 0;
         String figureWithBiggerPerimeter = "";
         String figureWithSecondBigerPerimeter = "";
-        for(int i = 0 ; i < arrayOfFigures.length; ++i){
-            if(biggerPerimeter < arrayOfFigures[i].getPerimeter()){
+        for (int i = 0; i < arrayOfFigures.length; ++i) {
+            if (biggerPerimeter < arrayOfFigures[i].getPerimeter()) {
                 secondBiggerPerimeter = biggerPerimeter;
                 biggerPerimeter = arrayOfFigures[i].getPerimeter();
                 figureWithSecondBigerPerimeter = figureWithBiggerPerimeter;
@@ -90,7 +90,7 @@ public class MainShapes {
         Arrays.sort(arrayOfFigures, new Comparator<Shape>() {
             @Override
             public int compare(Shape o1, Shape o2) {
-                return Double.compare( o1.getPerimeter(), o2.getPerimeter() );
+                return Double.compare(o1.getPerimeter(), o2.getPerimeter());
             }
         });
         /*
@@ -98,7 +98,7 @@ public class MainShapes {
             System.out.println(arrayOfFigures[i].getPerimeter());
         }
         */
-        System.out.printf("The figure with second biggest perimeter is %f" , arrayOfFigures[arrayOfFigures.length - 2].getPerimeter());
+        System.out.printf("The figure with second biggest perimeter is %f", arrayOfFigures[arrayOfFigures.length - 2].getPerimeter());
     }
 }
 
