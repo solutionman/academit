@@ -36,7 +36,12 @@ public class Triangle implements Shape {
     }
 
     public double getArea() {
-        return Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+        double p = getPerimeter() / 2;
+        double a = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        double b = Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2));
+        double c = Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        //return Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
     }
 
     public double getPerimeter() {
