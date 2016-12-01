@@ -21,30 +21,31 @@ public class Triangle implements Shape {
         this.y3 = y3;
     }
 
-    public double getMaxLength(double x, double y, double z) {
+    private static double getMaxDistance(double x, double y, double z) {
         return Math.max(x, Math.max(y, z)) - Math.min(x, Math.min(y, z));
     }
 
+    private static double getTriangleSide(double ax, double ay, double bx, double by){
+        return Math.sqrt(Math.pow(ax - bx, 2) + Math.pow(ay - by, 2));
+    }
+
     public double getWidth() {
-        return getMaxLength(x1, x2, x3);
-        //return Math.max(x1, Math.max(x2, x3)) - Math.min(x1, Math.min(x2, x3));
+        return getMaxDistance(x1, x2, x3);
     }
 
     public double getHeight() {
-        return getMaxLength(y1, y2, y3);
-        //return Math.max(y1, Math.max(y2, y3)) - Math.min(y1, Math.min(y2, y3));
+        return getMaxDistance(y1, y2, y3);
     }
 
     public double getArea() {
         double p = getPerimeter() / 2;
-        double a = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        double b = Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2));
-        double c = Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));
+        double a = getTriangleSide(x1, y1, x2, y2);
+        double b = getTriangleSide(x2, y2, x3, y3);
+        double c = getTriangleSide(x3, y3, x1, y1);
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        //return Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
     }
 
     public double getPerimeter() {
-        return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)) + Math.sqrt(Math.pow(x3 - x2, 2) + Math.pow(y3 - y2, 2)) + Math.sqrt(Math.pow(x3 - x1, 2) + Math.pow(y3 - y1, 2));
+        return getTriangleSide(x1, y1, x2, y2) + getTriangleSide(x2, y2, x3, y3) + getTriangleSide(x1, y1, x3, y3);
     }
 }
