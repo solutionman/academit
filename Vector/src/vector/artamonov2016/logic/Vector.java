@@ -1,35 +1,44 @@
 package vector.artamonov2016.logic;
 
+import java.util.ArrayList;
+
 public class Vector {
-    public double[] components;
+    private ArrayList<Double> components = new ArrayList<Double>();
 
     public Vector(double n){
         for(int i = 0;  i < n; ++i ){
-            this.components[i] = 0;
+            this.components.add((double)0);
         }
-
     }
 
-    // do not understand how to copy
-    /*
-    public Vector(Vector){
-
+    public Vector(Vector forCopy){
+        components = forCopy.components;
     }
-    */
+
 
     public Vector(double[] arrayOfVectors){
         for(int i = 0; i < arrayOfVectors.length; ++i){
-            this.components[i] = arrayOfVectors[i];
+            this.components.add(arrayOfVectors[i]);
         }
     }
 
     public Vector(int n, double[] arrayOfVectors){
         for(int i = 0; i < n; ++i){
-            if(i <= arrayOfVectors.length) {
-                this.components[i] = arrayOfVectors[i];
+            if(i < arrayOfVectors.length) {
+                this.components.add(arrayOfVectors[i]);
             } else{
-                this.components[i] = 0;
+                this.components.add((double)0);
             }
         }
     }
+
+    public int getSize() {
+        return components.size();
+    }
+
+    public String getToString(){
+        return components.toString();
+    }
 }
+
+
