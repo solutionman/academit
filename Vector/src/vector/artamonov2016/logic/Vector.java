@@ -39,6 +39,29 @@ public class Vector {
     public String getToString(){
         return components.toString();
     }
+
+    public ArrayList<Double> getComponents(){
+        return components;
+    }
+
+    public Vector addition(Vector vector1, Vector vector2){
+
+        if(vector1.getSize() != vector2.getSize()){
+            System.out.println("Can't perform addition with these vectors");
+            System.exit(0);
+        }
+
+        ArrayList<Double> forAddition1 = new ArrayList();
+        forAddition1 = vector1.getComponents();
+        ArrayList<Double> forAddition2 = new ArrayList();
+        forAddition2 = vector2.getComponents();
+        ArrayList forAdditionFinal = new ArrayList();
+        for(int i = 0 ; i < vector1.getSize(); ++i){
+            //forAdditionFinal.add(forAddition1(i) + forAddition2[i]);
+        }
+
+        return new Vector(2);
+    }
 }
 
 
