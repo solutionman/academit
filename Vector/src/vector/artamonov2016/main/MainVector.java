@@ -26,6 +26,9 @@ public class MainVector {
         System.out.printf("vectorArrayNull: %d   ", vectorArrayNull.getSize());
         System.out.println(vectorArrayNull.getToString());
 
+        Vector sumOfVectors = vectorArray.addition(vectorArray,copyOfVectorArray);
+        System.out.println("The sum of vectorArray and copyOfVectorArray: " + sumOfVectors.getToString());
+
     }
 }
 

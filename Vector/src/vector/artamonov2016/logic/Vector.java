@@ -55,12 +55,17 @@ public class Vector {
         forAddition1 = vector1.getComponents();
         ArrayList<Double> forAddition2 = new ArrayList();
         forAddition2 = vector2.getComponents();
-        ArrayList forAdditionFinal = new ArrayList();
+        //ArrayList forAdditionFinal = new ArrayList();
+        double[] arrayForAddition = new double[vector1.getSize()];
         for(int i = 0 ; i < vector1.getSize(); ++i){
-            //forAdditionFinal.add(forAddition1(i) + forAddition2[i]);
+            //forAdditionFinal.add(forAddition1.get(i) + forAddition2.get(i));
+            arrayForAddition[i] = (forAddition1.get(i) + forAddition2.get(i));
         }
 
-        return new Vector(2);
+        //Integer[] finalArray = (Integer) forAdditionFinal.toArray();
+
+
+        return new Vector(arrayForAddition);
     }
 }
 
