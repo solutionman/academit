@@ -67,6 +67,11 @@ public class Vector {
 
         return new Vector(arrayForAddition);
     }
+
+    public Vector subtraction(Vector vector1, Vector vector2){
+        
+        return new Vector(1);
+    }
 }
 
 
