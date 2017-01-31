@@ -36,6 +36,10 @@ public class Vector {
         return components.size();
     }
 
+    public void setComponents(ArrayList<Double> components){
+        this.components = components;
+    }
+
     public String getToString(){
         return components.toString();
     }
@@ -55,22 +59,40 @@ public class Vector {
         forAddition1 = vector1.getComponents();
         ArrayList<Double> forAddition2 = new ArrayList();
         forAddition2 = vector2.getComponents();
-        //ArrayList forAdditionFinal = new ArrayList();
         double[] arrayForAddition = new double[vector1.getSize()];
         for(int i = 0 ; i < vector1.getSize(); ++i){
-            //forAdditionFinal.add(forAddition1.get(i) + forAddition2.get(i));
             arrayForAddition[i] = (forAddition1.get(i) + forAddition2.get(i));
         }
-
-        //Integer[] finalArray = (Integer) forAdditionFinal.toArray();
-
 
         return new Vector(arrayForAddition);
     }
 
     public Vector subtraction(Vector vector1, Vector vector2){
-        
-        return new Vector(1);
+        if(vector1.getSize() != vector2.getSize()){
+            System.out.println("Can't perform subtraction between these vectors");
+            System.exit(0);
+        }
+
+        ArrayList<Double> forSubtraction1 = new ArrayList();
+        forSubtraction1 = vector1.getComponents();
+        ArrayList<Double> forSubtraction2 = new ArrayList();
+        forSubtraction2 = vector2.getComponents();
+        double[] arrayForSubtraction = new double[vector1.getSize()];
+        for(int i = 0; i < vector1.getSize(); ++i){
+            arrayForSubtraction[i] = (forSubtraction1.get(i) - forSubtraction2.get(i));
+        }
+
+        return new Vector(arrayForSubtraction);
+    }
+
+    public Vector rotation(Vector vector){
+        ArrayList<Double> forRotation = new ArrayList();
+        forRotation = vector.getComponents();
+        double[] arrayForRotation = new double[vector.getSize()];
+        for(int i = 0; i < vector.getSize(); ++i){
+            arrayForRotation[i] = forRotation.get(i) * (-1);
+        }
+        return new Vector (arrayForRotation);
     }
 }
 

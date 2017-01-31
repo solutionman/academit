@@ -26,9 +26,14 @@ public class MainVector {
         System.out.printf("vectorArrayNull: %d   ", vectorArrayNull.getSize());
         System.out.println(vectorArrayNull.getToString());
 
-        Vector sumOfVectors = vectorArray.addition(vectorArray,copyOfVectorArray);
+        Vector sumOfVectors = vectorArray.addition(vectorArray, copyOfVectorArray);
         System.out.println("The sum of vectorArray and copyOfVectorArray: " + sumOfVectors.getToString());
 
+        Vector subtractionOfVectors = vectorArray.subtraction(vectorArray, copyOfVectorArray);
+        System.out.println("The subtruction of vectorArray and copyOfVectorArray: " + subtractionOfVectors.getToString());
+
+        Vector rotationOfVector = vectorArray.rotation(vectorArray);
+        System.out.println("Rotated vector: " + rotationOfVector.getToString());
     }
 }
 
