@@ -17,23 +17,24 @@ public class MainVector {
         Vector vectorArrayNull = new Vector(5, arrayForVector);
 
         System.out.println("Length of arrays is:");
+
         System.out.printf("vectorNull: %d   ", vectorNull.getSize());
-        System.out.println(vectorNull.getToString());
+        System.out.println(vectorNull.toString());
         System.out.printf("vectorArray: %d   ", vectorArray.getSize());
-        System.out.println(vectorArray.getToString());
+        System.out.println(vectorArray.toString());
         System.out.printf("copyOfVectorArray: %d   ", copyOfVectorArray.getSize());
-        System.out.println(copyOfVectorArray.getToString());
+        System.out.println(copyOfVectorArray.toString());
         System.out.printf("vectorArrayNull: %d   ", vectorArrayNull.getSize());
-        System.out.println(vectorArrayNull.getToString());
+        System.out.println(vectorArrayNull.toString());
 
         Vector sumOfVectors = vectorArray.addition(vectorArray, copyOfVectorArray);
-        System.out.println("The sum of vectorArray and copyOfVectorArray: " + sumOfVectors.getToString());
+        System.out.println("The sum of vectorArray and copyOfVectorArray: " + sumOfVectors.toString());
 
         Vector subtractionOfVectors = vectorArray.subtraction(vectorArray, copyOfVectorArray);
-        System.out.println("The subtruction of vectorArray and copyOfVectorArray: " + subtractionOfVectors.getToString());
+        System.out.println("The subtruction of vectorArray and copyOfVectorArray: " + subtractionOfVectors.toString());
 
         Vector rotationOfVector = vectorArray.rotation(vectorArray);
-        System.out.println("Rotated vector: " + rotationOfVector.getToString());
+        System.out.println("Rotated vector: " + rotationOfVector.toString());
     }
 }
 

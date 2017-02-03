@@ -3,48 +3,62 @@ package vector.artamonov2016.logic;
 import java.util.ArrayList;
 
 public class Vector {
-    private ArrayList<Double> components = new ArrayList<Double>();
+    private double [] components ;
 
-    public Vector(double n){
+    public Vector(int n){
+
+        if(n < 0){
+            System.out.println("Can't create such vector, the number must be a positive number ");
+            System.exit(0);
+        }
+
+        this.components = new double[n];
         for(int i = 0;  i < n; ++i ){
-            this.components.add((double)0);
+            components[i] = 0;
         }
     }
 
     public Vector(Vector forCopy){
-        components = forCopy.components;
+        this.components = new double[forCopy.getComponents().length];
+        for(int i = 0; i < forCopy.getComponents().length; ++i){
+            this.components[i] = forCopy.getComponents()[i];
+        }
     }
 
 
     public Vector(double[] arrayOfVectors){
+        this.components = new double[arrayOfVectors.length];
         for(int i = 0; i < arrayOfVectors.length; ++i){
-            this.components.add(arrayOfVectors[i]);
+            this.components[i] = arrayOfVectors[i];
         }
     }
 
     public Vector(int n, double[] arrayOfVectors){
+
+        if(n < 0){
+            System.out.println("Can't create such vector, the number must be a positive number ");
+            System.exit(0);
+        }
+
+        this.components = new double[n];
         for(int i = 0; i < n; ++i){
             if(i < arrayOfVectors.length) {
-                this.components.add(arrayOfVectors[i]);
+                this.components[i] = arrayOfVectors[i];
             } else{
-                this.components.add((double)0);
+                this.components[i] = 0;
             }
         }
     }
 
     public int getSize() {
-        return components.size();
+        return components.length;
     }
 
-    public void setComponents(ArrayList<Double> components){
-        this.components = components;
-    }
-
-    public String getToString(){
+    public String toString(){
         return components.toString();
     }
 
-    public ArrayList<Double> getComponents(){
+    public double[] getComponents(){
         return components;
     }
 
@@ -55,13 +69,13 @@ public class Vector {
             System.exit(0);
         }
 
-        ArrayList<Double> forAddition1 = new ArrayList();
+        double[] forAddition1 = new double[vector1.getSize()];
         forAddition1 = vector1.getComponents();
-        ArrayList<Double> forAddition2 = new ArrayList();
+        double[] forAddition2 = new double[vector2.getSize()];
         forAddition2 = vector2.getComponents();
         double[] arrayForAddition = new double[vector1.getSize()];
         for(int i = 0 ; i < vector1.getSize(); ++i){
-            arrayForAddition[i] = (forAddition1.get(i) + forAddition2.get(i));
+            arrayForAddition[i] = (forAddition1[i] + forAddition2[i]);
         }
 
         return new Vector(arrayForAddition);
@@ -73,24 +87,24 @@ public class Vector {
             System.exit(0);
         }
 
-        ArrayList<Double> forSubtraction1 = new ArrayList();
+        double[]forSubtraction1 = new double[vector1.getSize()];
         forSubtraction1 = vector1.getComponents();
-        ArrayList<Double> forSubtraction2 = new ArrayList();
+        double[] forSubtraction2 = new double[vector2.getSize()];
         forSubtraction2 = vector2.getComponents();
         double[] arrayForSubtraction = new double[vector1.getSize()];
         for(int i = 0; i < vector1.getSize(); ++i){
-            arrayForSubtraction[i] = (forSubtraction1.get(i) - forSubtraction2.get(i));
+            arrayForSubtraction[i] = (forSubtraction1[i] - forSubtraction2[i]);
         }
 
         return new Vector(arrayForSubtraction);
     }
 
     public Vector rotation(Vector vector){
-        ArrayList<Double> forRotation = new ArrayList();
+        double[] forRotation = new double[vector.getSize()];
         forRotation = vector.getComponents();
         double[] arrayForRotation = new double[vector.getSize()];
         for(int i = 0; i < vector.getSize(); ++i){
-            arrayForRotation[i] = forRotation.get(i) * (-1);
+            arrayForRotation[i] = forRotation[i] * (-1);
         }
         return new Vector (arrayForRotation);
     }
