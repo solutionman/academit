@@ -1,6 +1,6 @@
 package vector.artamonov2016.logic;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Vector {
     private double [] components ;
@@ -55,7 +55,7 @@ public class Vector {
     }
 
     public String toString(){
-        return components.toString();
+        return Arrays.toString(components);
     }
 
     public double[] getComponents(){
