@@ -1,5 +1,6 @@
 // Here is the main class for program
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -10,8 +11,11 @@ public class Main {
         System.out.println("Enter the type of sorting:  a (ascending) d (decreasing)");
         String typeOfSorting = scanner.next();
 
-        ReadSortWrite.readSortWrite(nameOfFile, typeOfSorting);
+        ArrayList<String> arrayFromFile = ReadSortWrite.readToArray(nameOfFile);
 
-        System.out.println(nameOfFile + typeOfSorting);
+        ReadSortWrite.sortArray(arrayFromFile);
+
+        ReadSortWrite.writeToFile(arrayFromFile);
+
     }
 }
