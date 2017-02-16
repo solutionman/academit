@@ -26,12 +26,20 @@ public class ReadSortWrite {
     public static void sortArray (ArrayList<String> arrayForFile){
         for (int i = 0; i < arrayForFile.size(); ++i){
             for(int j = i; j < arrayForFile.size(); ++j){
-               if((arrayForFile.get(i)).compareTo(arrayForFile.get(j)) > 0){
+                Integer firstNumber = Integer.parseInt(arrayForFile.get(i));
+                Integer secondNumber = Integer.parseInt(arrayForFile.get(j));
+               if(firstNumber > secondNumber){
                    String temp = arrayForFile.get(i);
                    arrayForFile.set(i, arrayForFile.get(j));
                    arrayForFile.set(j, temp);
                    //arrayForFile.set(i, arrayForFile.get(j)) = arrayForFile.get(j);
                    //arrayForFile.get(j) = temp;
+               } else {
+                   //for testing
+                   // it works
+                   //String temp = arrayForFile.get(i);
+                   //arrayForFile.set(i, arrayForFile.get(j));
+                   //arrayForFile.set(j, temp);
                }
             }
         }
