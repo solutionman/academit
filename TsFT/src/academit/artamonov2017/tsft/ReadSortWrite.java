@@ -1,4 +1,4 @@
-// Here actually we will read, sort and write
+package academit.artamonov2017.tsft;// Here actually we will read, sort and write
 
 import java.io.BufferedReader;
 import java.io.FileReader;
