@@ -17,7 +17,8 @@ public class ReadSortWrite {
                 arrayForFile.add(line);
             }
         } catch (Exception e) {
-            System.out.println("Something goes wrong. (Seems like there's no such file)");
+            System.out.println("Что-то пошло не так. (Скорее всего не существует указанного файла)");
+            System.exit(0);
         }
 
         return arrayForFile;
@@ -44,7 +45,7 @@ public class ReadSortWrite {
                         arrayForFile.set(j, temp);
                     }
                 } else {
-                    System.out.println("File contains wrong symbols.");
+                    System.out.println("Файл содержит недопустимые символы.");
                     return;
                 }
             }
@@ -72,7 +73,7 @@ public class ReadSortWrite {
                         arrayForFile.set(j, temp);
                     }
                 } else {
-                    System.out.println("File contains wrong symbols.");
+                    System.out.println("Файл содержит недопустимые символы.");
                 }
             }
         }
@@ -84,7 +85,7 @@ public class ReadSortWrite {
                 out.write(sortedFile.get(i) + "\n");
             }
         } catch (Exception e) {
-            System.out.println("Something goes wrong.");
+            System.out.println("Что-то пошло не так.");
         }
     }
 }
