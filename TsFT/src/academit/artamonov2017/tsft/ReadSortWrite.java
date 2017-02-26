@@ -81,8 +81,8 @@ public class ReadSortWrite {
 
     public static void writeToFile(ArrayList<String> sortedFile) {
         try (PrintWriter out = new PrintWriter("sortedFile.txt")) {
-            for (int i = 0; i < sortedFile.size(); ++i) {
-                out.write(sortedFile.get(i) + System.getProperty("line.separator"));
+            for (String line : sortedFile) {
+                out.write(line + System.getProperty("line.separator"));
             }
         } catch (Exception e) {
             System.out.println("Что-то пошло не так.");
