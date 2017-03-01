@@ -17,7 +17,7 @@ public class ReadSortWrite {
                 arrayForFile.add(line);
             }
         } catch (Exception e) {
-            System.out.println("Что-то пошло не так. (Скорее всего не существует указанного файла)");
+            System.out.printf("Что-то пошло не так. (Скорее всего не существует указанного файла %s)", nameOfFile);
             System.exit(0);
         }
 

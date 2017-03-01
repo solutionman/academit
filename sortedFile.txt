@@ -1,4 +1,3 @@
-attraction
-digit
-hello
-info
+5879
+123
+25
