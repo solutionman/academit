@@ -1,5 +1,6 @@
 package academit.artamonov2017.tsft;// Here is the main class for program
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -42,6 +43,8 @@ public class Main {
             ReadSortWrite.writeToFile(arrayFromFile);
 
 
+        } catch (IOException e) {
+            System.out.printf("Что-то пошло не так. (Скорее всего не существует указанного файла %s)", args[1]);
         } catch (Exception e) {
             System.out.println("У нас где-то проблема.");
         }
