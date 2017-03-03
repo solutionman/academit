@@ -45,6 +45,8 @@ public class Main {
 
         } catch (IOException e) {
             System.out.printf("Что-то пошло не так. (Скорее всего не существует указанного файла %s)", args[1]);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Файл содержит недопустимые символы.");
         } catch (Exception e) {
             System.out.println("У нас где-то проблема.");
         }

@@ -1,14 +1,12 @@
 package academit.artamonov2017.tsft;// Here actually we will read, sort and write
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ReadSortWrite {
 
-    public static ArrayList<String> readToArray(String nameOfFile) {
-        ArrayList<String> arrayForFile = new ArrayList();
+    public static ArrayList<String> readToArray(String nameOfFile) throws IOException {
+        ArrayList<String> arrayForFile = new ArrayList<>();
         try (
                 BufferedReader in = new BufferedReader(new FileReader(nameOfFile))
         ) {
@@ -16,9 +14,6 @@ public class ReadSortWrite {
             while ((line = in.readLine()) != null) {
                 arrayForFile.add(line);
             }
-        } catch (Exception e) {
-            System.out.printf("Что-то пошло не так. (Скорее всего не существует указанного файла %s)", nameOfFile);
-            System.exit(0);
         }
 
         return arrayForFile;
@@ -45,8 +40,9 @@ public class ReadSortWrite {
                         arrayForFile.set(j, temp);
                     }
                 } else {
-                    System.out.println("Файл содержит недопустимые символы.");
-                    return;
+                    throw new IllegalArgumentException();
+                    //System.out.println("Файл содержит недопустимые символы.");
+                    //return;
                 }
             }
         }
@@ -79,13 +75,11 @@ public class ReadSortWrite {
         }
     }
 
-    public static void writeToFile(ArrayList<String> sortedFile) {
+    public static void writeToFile(ArrayList<String> sortedFile) throws Exception {
         try (PrintWriter out = new PrintWriter("sortedFile.txt")) {
             for (String line : sortedFile) {
                 out.write(line + System.getProperty("line.separator"));
             }
-        } catch (Exception e) {
-            System.out.println("Что-то пошло не так.");
         }
     }
 }
