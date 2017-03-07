@@ -26,21 +26,21 @@ public class Main {
             }
 
 
-            ArrayList<String> arrayFromFile = ReadSortWrite.readToArray(args[1]);
+            ArrayList<String> arrayFromFile = Reading.readToArray(args[1]);
 
 
             if (typeOfSorting.equals("-a")) {
-                ReadSortWrite.sortArrayAscending(arrayFromFile);
+                Sorting.sortArrayAscending(arrayFromFile);
                 System.out.println("Файл отсортирован по возрастанию.");
             } else if (typeOfSorting.equals("-d")) {
-                ReadSortWrite.sortArrayDescending(arrayFromFile);
+                Sorting.sortArrayDescending(arrayFromFile);
                 System.out.println("Файл отсортирован по убыванию.");
             } else {
                 System.out.println("Вы должны выбрать \"-a\" или \"-d\", файл не отсортирован.");
                 return;
             }
 
-            ReadSortWrite.writeToFile(arrayFromFile);
+            Writing.writeToFile(arrayFromFile);
 
 
         } catch (IOException e) {
