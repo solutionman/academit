@@ -28,6 +28,7 @@ public class Main {
 
             ArrayList<String> arrayFromFile = Reading.readToArray(args[1]);
 
+            String typeOfFile = args[2];
 
             if (typeOfSorting.equals("-a")) {
                 Sorting.sortArrayAscending(arrayFromFile);
@@ -39,6 +40,8 @@ public class Main {
                 System.out.println("Вы должны выбрать \"-a\" или \"-d\", файл не отсортирован.");
                 return;
             }
+
+            String nameOfOutputFile = args[3];
 
             Writing.writeToFile(arrayFromFile);
 
