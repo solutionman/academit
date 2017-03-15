@@ -6,7 +6,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Reading {
-    public static ArrayList<String> readToArray(String nameOfFile) throws IOException {
+
+    public static ArrayList<Integer> readToArrayInt(String nameOfFile) throws IOException{
+        ArrayList<Integer> arrayFromFile = new ArrayList<>();
+        try(
+                BufferedReader in = new BufferedReader(new FileReader(nameOfFile))
+                ){
+            Integer number;
+            while((number = in.read()) != null){
+                arrayFromFile.add(number);
+            }
+        }
+        return  arrayFromFile;
+    }
+
+    public static ArrayList<String> readToArrayString(String nameOfFile) throws IOException {
         ArrayList<String> arrayForFile = new ArrayList<>();
         try (
                 BufferedReader in = new BufferedReader(new FileReader(nameOfFile))
@@ -16,7 +30,7 @@ public class Reading {
                 arrayForFile.add(line);
             }
         }
-
         return arrayForFile;
     }
+
 }

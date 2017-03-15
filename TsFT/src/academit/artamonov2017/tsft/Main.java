@@ -13,45 +13,63 @@ public class Main {
                 return;
             }
 
-            String typeOfSorting = args[0];
 
-            if (typeOfSorting.equals("-h")) {
+            if (args[0].equals("-h")) {
                 System.out.println("Программа должна запускаться с параметрами:");
-                System.out.println("-a - сотрировка по возрастанию");
-                System.out.println("-b - сортировка по убыванию");
-                System.out.println("file.txt - название файла с расширением.");
-                System.out.println("Отсортированный файл будет находиться в файле sortedFile.txt");
-                System.out.println("(будет перезаписан, если уже существует.)");
+                System.out.println("Первый аргумент - наименование сортируемого файла. (с расширением letters.txt)");
+                System.out.println("Второй аргумент - наименование файла, в который будут помещены отсортированные данные. (output.txt). ");
+                System.out.println("Файл будет перезаписан, если файла не существует, он будет создан.");
+                System.out.println("Третий аргумент - тип сортируемого файла ( -s строки -i целые числа)");
+                System.out.println("Четвертый аргумент - порядок сортировки ( -a сортировка в возрастанию -b сортировка по убыванию )");
+                System.out.println("Пример: letters.txt output.txt -s -a");
+                return;
+            }
+
+            // get arguments to variables
+            String nameOfInputFile = args[0];
+            String typeOfFile = args[2];      // -i for integer, -s for strings
+            String typeOfSorting = args[3];   // -a ascending  -d decreasing
+
+            // reading input file
+            ArrayList<Integer> arrayFromFileInt = new ArrayList<>();
+            ArrayList<String> arrayFromFileSting = new ArrayList<>();
+            if(typeOfFile.equals("-i")){
+                arrayFromFileInt = Reading.readToArrayInt(nameOfInputFile);
+            } else if(typeOfFile.equals("-s")){
+                arrayFromFileSting = Reading.readToArrayString(nameOfInputFile);
+            } else {
+                System.out.println("Неверный аргумент для файла, вы должны выбрать -i или -s");
                 return;
             }
 
 
-            ArrayList<String> arrayFromFile = Reading.readToArray(args[1]);
-
-            String typeOfFile = args[2];
-
-            if (typeOfSorting.equals("-a")) {
-                Sorting.sortArrayAscending(arrayFromFile);
-                System.out.println("Файл отсортирован по возрастанию.");
-            } else if (typeOfSorting.equals("-d")) {
-                Sorting.sortArrayDescending(arrayFromFile);
-                System.out.println("Файл отсортирован по убыванию.");
+            // sorting file
+            if (typeOfFile.equals("-i")) {
+                Sorting.sortIntArray(arrayFromFileInt, typeOfSorting);
+            } else if (typeOfFile.equals("-s")) {
+                Sorting.sortStringArray(arrayFromFileSting, typeOfSorting);
             } else {
                 System.out.println("Вы должны выбрать \"-a\" или \"-d\", файл не отсортирован.");
                 return;
             }
 
-            String nameOfOutputFile = args[3];
+            String nameOfOutputFile = args[1];
 
-            Writing.writeToFile(arrayFromFile);
+            // writing file
+            if(typeOfFile.equals("-i")){
+                Writing.writeIntToFile(arrayFromFileInt, nameOfOutputFile);
+            } else if(typeOfFile.equals("-s")){
+                Writing.writeStringToFile(arrayFromFileSting, nameOfOutputFile);
+            }
+
 
 
         } catch (IOException e) {
-            System.out.printf("Что-то пошло не так. (Скорее всего не существует указанного файла %s)", args[1]);
+            System.out.printf("Не существует указанного файла %s", args[1]);
         } catch (IllegalArgumentException e) {
             System.out.println("Файл содержит недопустимые символы.");
         } catch (Exception e) {
-            System.out.println("У нас где-то проблема.");
+            System.out.println("У нас где-то неопознанная проблема.");
         }
     }
 }
