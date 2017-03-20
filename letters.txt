@@ -1,6 +1,10 @@
 hello
 selection
 digit
+boom
 best
 attraction
+abstraction
+comrade
 info
+enum

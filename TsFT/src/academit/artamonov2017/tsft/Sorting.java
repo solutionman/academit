@@ -14,15 +14,20 @@ public class Sorting {
 
     public static void sortStringArray(ArrayList<String> arrayFromFile,String typeOfSorting ){
         if(typeOfSorting.equals("-a")) {
-            for (int i = 0; i < arrayFromFile.size(); ++i) {
-                for (int j = i; j < arrayFromFile.size(); ++j) {
-                    if (arrayFromFile.get(i).compareTo(arrayFromFile.get(j)) == 1) {
-                        String temp = arrayFromFile.get(i);
-                        arrayFromFile.set(i, arrayFromFile.get(j));
-                        arrayFromFile.set(j, temp);
-                    }
+            for (int i = 1; i < arrayFromFile.size(); ++i) {
+                String temp = arrayFromFile.get(i);
+                int j;
+                for (j = i - 1; j >= 0 && temp.compareTo(arrayFromFile.get(j)) < 0 ; --j) {
+                        //debug
+                        System.out.printf(" %s > %s",arrayFromFile.get(j), arrayFromFile.get(i));
+                        System.out.println();
+                        //String temp = arrayFromFile.get(i);
+                        arrayFromFile.set(j + 1, arrayFromFile.get(j));
+                        //arrayFromFile.set(j, temp);
                 }
+                arrayFromFile.set(j + 1, temp);
             }
+
             // debugging
             for(int i = 0; i < arrayFromFile.size(); ++i){
                 System.out.println(arrayFromFile.get(i));
