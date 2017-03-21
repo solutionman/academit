@@ -12,9 +12,9 @@ public class Reading {
         try(
                 BufferedReader in = new BufferedReader(new FileReader(nameOfFile))
                 ){
-            Integer number;
-            while((number = in.read()) != null){
-                arrayFromFile.add(number);
+            String number;
+            while((number = in.readLine()) != null){
+                arrayFromFile.add(Integer.parseInt(number));
             }
         }
         return  arrayFromFile;

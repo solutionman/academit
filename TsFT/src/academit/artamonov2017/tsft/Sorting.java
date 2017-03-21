@@ -6,41 +6,53 @@ import java.util.ArrayList;
 
 public class Sorting {
 
-    public static void sortIntArray(ArrayList<Integer> arrayForFile, String typeOfSorting){
-        for(int i= 0; i < arrayForFile.size(); ++i){
+    public static void sortIntArray(ArrayList<Integer> arrayForFile, String typeOfSorting) {
+        if (typeOfSorting.equals("-a")) {
+            for (int i = 1; i < arrayForFile.size(); ++i) {
+                int temp = arrayForFile.get(i);
+                int j;
+                for (j = i - 1; j >= 0 && temp < arrayForFile.get(j); j--) {
+                    arrayForFile.set(j + 1, arrayForFile.get(j));
+                }
+                arrayForFile.set(j + 1, temp);
+            }
+        }
+
+        if (typeOfSorting.equals("-b")){
 
         }
     }
 
-    public static void sortStringArray(ArrayList<String> arrayFromFile,String typeOfSorting ){
-        if(typeOfSorting.equals("-a")) {
+    public static void sortStringArray(ArrayList<String> arrayFromFile, String typeOfSorting) {
+        if (typeOfSorting.equals("-a")) {
             for (int i = 1; i < arrayFromFile.size(); ++i) {
                 String temp = arrayFromFile.get(i);
                 int j;
-                for (j = i - 1; j >= 0 && temp.compareTo(arrayFromFile.get(j)) < 0 ; --j) {
-                        //debug
-                        System.out.printf(" %s > %s",arrayFromFile.get(j), arrayFromFile.get(i));
-                        System.out.println();
-                        //String temp = arrayFromFile.get(i);
-                        arrayFromFile.set(j + 1, arrayFromFile.get(j));
-                        //arrayFromFile.set(j, temp);
+                for (j = i - 1; j >= 0 && temp.compareTo(arrayFromFile.get(j)) < 0; --j) {
+                    //debug
+                    System.out.printf(" %s > %s", arrayFromFile.get(j), arrayFromFile.get(i));
+                    System.out.println();
+                    //String temp = arrayFromFile.get(i);
+                    arrayFromFile.set(j + 1, arrayFromFile.get(j));
+                    //arrayFromFile.set(j, temp);
                 }
                 arrayFromFile.set(j + 1, temp);
             }
 
             // debugging
-            for(int i = 0; i < arrayFromFile.size(); ++i){
+            for (int i = 0; i < arrayFromFile.size(); ++i) {
                 System.out.println(arrayFromFile.get(i));
             }
         }
 
-        if(typeOfSorting.equals("-d")){
-            for (int i = 0; i < arrayFromFile.size(); ++i) {
-                for (int j = 0; j < arrayFromFile.size(); ++j) {
-                    if (arrayFromFile.get(i).compareTo(arrayFromFile.get(j)) == -1) {
-
-                    }
+        if (typeOfSorting.equals("-d")) {
+            for (int i = 1; i < arrayFromFile.size(); ++i) {
+                String temp = arrayFromFile.get(i);
+                int j;
+                for (j = i - 1; j >= 0 && temp.compareTo(arrayFromFile.get(j)) > 0; --j) {
+                    arrayFromFile.set(j + 1, arrayFromFile.get(j));
                 }
+                arrayFromFile.set(j + 1, temp);
             }
         }
     }
