@@ -7,17 +7,17 @@ import java.util.ArrayList;
 
 public class Reading {
 
-    public static ArrayList<Integer> readToArrayInt(String nameOfFile) throws IOException{
+    public static ArrayList<Integer> readToArrayInt(String nameOfFile) throws IOException {
         ArrayList<Integer> arrayFromFile = new ArrayList<>();
-        try(
+        try (
                 BufferedReader in = new BufferedReader(new FileReader(nameOfFile))
-                ){
+        ) {
             String number;
-            while((number = in.readLine()) != null){
+            while ((number = in.readLine()) != null) {
                 arrayFromFile.add(Integer.parseInt(number));
             }
         }
-        return  arrayFromFile;
+        return arrayFromFile;
     }
 
     public static ArrayList<String> readToArrayString(String nameOfFile) throws IOException {

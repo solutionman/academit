@@ -11,15 +11,22 @@ public class Sorting {
             for (int i = 1; i < arrayForFile.size(); ++i) {
                 int temp = arrayForFile.get(i);
                 int j;
-                for (j = i - 1; j >= 0 && temp < arrayForFile.get(j); j--) {
+                for (j = i - 1; j >= 0 && temp < arrayForFile.get(j); --j) {
                     arrayForFile.set(j + 1, arrayForFile.get(j));
                 }
                 arrayForFile.set(j + 1, temp);
             }
         }
 
-        if (typeOfSorting.equals("-b")){
-
+        if (typeOfSorting.equals("-d")) {
+            for (int i = 1; i < arrayForFile.size(); ++i) {
+                int temp = arrayForFile.get(i);
+                int j;
+                for (j = i - 1; j >= 0 && temp > arrayForFile.get(j); --j) {
+                    arrayForFile.set(j + 1, arrayForFile.get(j));
+                }
+                arrayForFile.set(j + 1, temp);
+            }
         }
     }
 

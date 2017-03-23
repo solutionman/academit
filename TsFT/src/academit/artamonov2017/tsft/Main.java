@@ -33,9 +33,9 @@ public class Main {
             // reading input file
             ArrayList<Integer> arrayFromFileInt = new ArrayList<>();
             ArrayList<String> arrayFromFileSting = new ArrayList<>();
-            if(typeOfFile.equals("-i")){
+            if (typeOfFile.equals("-i")) {
                 arrayFromFileInt = Reading.readToArrayInt(nameOfInputFile);
-            } else if(typeOfFile.equals("-s")){
+            } else if (typeOfFile.equals("-s")) {
                 arrayFromFileSting = Reading.readToArrayString(nameOfInputFile);
             } else {
                 System.out.println("Неверный аргумент для файла, вы должны выбрать -i или -s");
@@ -56,12 +56,11 @@ public class Main {
             String nameOfOutputFile = args[1];
 
             // writing file
-            if(typeOfFile.equals("-i")){
+            if (typeOfFile.equals("-i")) {
                 Writing.writeIntToFile(arrayFromFileInt, nameOfOutputFile);
-            } else if(typeOfFile.equals("-s")){
+            } else if (typeOfFile.equals("-s")) {
                 Writing.writeStringToFile(arrayFromFileSting, nameOfOutputFile);
             }
-
 
 
         } catch (IOException e) {
