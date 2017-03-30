@@ -36,19 +36,9 @@ public class Sorting {
                 String temp = arrayFromFile.get(i);
                 int j;
                 for (j = i - 1; j >= 0 && temp.compareTo(arrayFromFile.get(j)) < 0; --j) {
-                    //debug
-                    System.out.printf(" %s > %s", arrayFromFile.get(j), arrayFromFile.get(i));
-                    System.out.println();
-                    //String temp = arrayFromFile.get(i);
                     arrayFromFile.set(j + 1, arrayFromFile.get(j));
-                    //arrayFromFile.set(j, temp);
                 }
                 arrayFromFile.set(j + 1, temp);
-            }
-
-            // debugging
-            for (int i = 0; i < arrayFromFile.size(); ++i) {
-                System.out.println(arrayFromFile.get(i));
             }
         }
 
@@ -64,61 +54,5 @@ public class Sorting {
         }
     }
 
-    public static void sortArrayAscending(ArrayList<String> arrayForFile) {
-        for (int i = 0; i < arrayForFile.size(); ++i) {
-            for (int j = i; j < arrayForFile.size(); ++j) {
-                char check = arrayForFile.get(i).charAt(0);
-                if (Character.isDigit(check)) {
-                    Integer firstNumber = Integer.parseInt(arrayForFile.get(i));
-                    Integer secondNumber = Integer.parseInt(arrayForFile.get(j));
-                    if (firstNumber > secondNumber) {
-                        String temp = arrayForFile.get(i);
-                        arrayForFile.set(i, arrayForFile.get(j));
-                        arrayForFile.set(j, temp);
-                    }
-                } else if (Character.isLetter(check)) {
-                    Character firstChar = arrayForFile.get(i).charAt(0);
-                    Character secondChar = arrayForFile.get(j).charAt(0);
-                    if (firstChar > secondChar) {
-                        String temp = arrayForFile.get(i);
-                        arrayForFile.set(i, arrayForFile.get(j));
-                        arrayForFile.set(j, temp);
-                    }
-                } else {
-                    throw new IllegalArgumentException();
-                    //System.out.println("Файл содержит недопустимые символы.");
-                    //return;
-                }
-            }
-        }
-    }
-
-    public static void sortArrayDescending(ArrayList<String> arrayForFile) {
-        for (int i = 0; i < arrayForFile.size(); ++i) {
-            for (int j = i; j < arrayForFile.size(); ++j) {
-                char check = arrayForFile.get(i).charAt(0);
-                if (Character.isDigit(check)) {
-                    Integer firstNumber = Integer.parseInt(arrayForFile.get(i));
-                    Integer secondNumber = Integer.parseInt(arrayForFile.get(j));
-                    if (firstNumber < secondNumber) {
-                        String temp = arrayForFile.get(i);
-                        arrayForFile.set(i, arrayForFile.get(j));
-                        arrayForFile.set(j, temp);
-                    }
-                } else if (Character.isLetter(check)) {
-                    Character firstChar = arrayForFile.get(i).charAt(0);
-                    Character secondChar = arrayForFile.get(i).charAt(0);
-                    if (firstChar < secondChar) {
-                        String temp = arrayForFile.get(i);
-                        arrayForFile.set(i, arrayForFile.get(j));
-                        arrayForFile.set(j, temp);
-                    }
-                } else {
-                    throw new IllegalArgumentException();
-                    // System.out.println("Файл содержит недопустимые символы.");
-                }
-            }
-        }
-    }
 }
 

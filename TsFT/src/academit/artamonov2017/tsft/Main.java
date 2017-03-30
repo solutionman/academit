@@ -7,14 +7,9 @@ public class Main {
     public static void main(String args[]) {
 
         try {
-            if (args.length == 0) {
-                System.out.println("Вы должны передать аргументы для программы.");
-                System.out.println("Напишите -h для вызова справки");
-                return;
-            }
-
 
             if (args[0].equals("-h")) {
+                System.out.println("Вы должны передать аргументы для программы.");
                 System.out.println("Программа должна запускаться с параметрами:");
                 System.out.println("Первый аргумент - наименование сортируемого файла. (с расширением letters.txt)");
                 System.out.println("Второй аргумент - наименование файла, в который будут помещены отсортированные данные. (output.txt). ");
@@ -22,6 +17,7 @@ public class Main {
                 System.out.println("Третий аргумент - тип сортируемого файла ( -s строки -i целые числа)");
                 System.out.println("Четвертый аргумент - порядок сортировки ( -a сортировка в возрастанию -b сортировка по убыванию )");
                 System.out.println("Пример: letters.txt output.txt -s -a");
+                System.out.println("Напишите -h для вызова справки");
                 return;
             }
 
@@ -29,6 +25,10 @@ public class Main {
             String nameOfInputFile = args[0];
             String typeOfFile = args[2];      // -i for integer, -s for strings
             String typeOfSorting = args[3];   // -a ascending  -d decreasing
+
+            // reading input file to generic ArrayList
+            ArrayList<Symbol> arrayFromFileGeneric = new ArrayList<Symbol>();
+            arrayFromFileGeneric = Reading.readToArraySymbol(nameOfInputFile);
 
             // reading input file
             ArrayList<Integer> arrayFromFileInt = new ArrayList<>();

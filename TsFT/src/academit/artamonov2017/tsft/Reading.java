@@ -33,4 +33,17 @@ public class Reading {
         return arrayForFile;
     }
 
+    public static ArrayList<Symbol> readToArraySymbol(String nameOfFile) throws IOException{
+        ArrayList<Symbol> arrayForFile = new ArrayList<>();
+        try(
+                BufferedReader in = new BufferedReader(new FileReader(nameOfFile))
+                ){
+            String line;
+            while ((line = in.readLine()) != null){
+                //arrayForFile.add(Symbol.);
+            }
+        }
+        return arrayForFile;
+    }
+
 }
