@@ -52,11 +52,7 @@ public class Main {
             String nameOfOutputFile = args[1];
 
             // writing file
-            if (typeOfFile.equals("-i")) {
-                Writing.writeIntToFile(arrayFromFileInt, nameOfOutputFile);
-            } else if (typeOfFile.equals("-s")) {
-                Writing.writeToFile(arrayFromFileSting, nameOfOutputFile);
-            }
+            Writing.writeToFile(arrayFromFileInt, nameOfOutputFile);
 
 
         } catch (IOException e) {
