@@ -1,10 +1,4 @@
-selection
-info
-hello
-enum
-digit
-comrade
-boom
-best
-attraction
-abstraction
+123
+25
+62
+5879

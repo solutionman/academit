@@ -41,9 +41,9 @@ public class Main {
 
             // sorting file
             if (typeOfFile.equals("-i")) {
-                Sorting.sortIntArray(arrayFromFileInt, typeOfSorting);
+                SortingGeneric.sortArray(arrayFromFileInt, new IntegerComparator());
             } else if (typeOfFile.equals("-s")) {
-                Sorting.sortStringArray(arrayFromFileSting, typeOfSorting);
+                SortingGeneric.sortArray(arrayFromFileSting, new StringComparator());
             } else {
                 System.out.println("Вы должны выбрать \"-a\" или \"-d\", файл не отсортирован.");
                 return;
