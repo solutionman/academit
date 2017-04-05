@@ -52,8 +52,11 @@ public class Main {
             String nameOfOutputFile = args[1];
 
             // writing file
-            Writing.writeToFile(arrayFromFileInt, nameOfOutputFile);
-
+            if (typeOfFile.equals("-i")) {
+                Writing.writeToFile(arrayFromFileInt, nameOfOutputFile);
+            } else if (typeOfFile.equals("-s")){
+                Writing.writeToFile(arrayFromFileSting, nameOfOutputFile);
+            }
 
         } catch (IOException e) {
             System.out.printf("Не существует указанного файла %s", args[1]);

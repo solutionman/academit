@@ -1,4 +1,10 @@
-5879
-123
-62
-25
+hello
+selection
+info
+enum
+digit
+comrade
+boom
+best
+attraction
+abstraction

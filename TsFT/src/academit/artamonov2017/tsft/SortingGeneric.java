@@ -9,7 +9,7 @@ public class SortingGeneric{
         for(int i = 0; i < arrayForFile.size(); ++i){
             T temp = arrayForFile.get(i);
             int j;
-            for(j = i -1; j > 0 && comparator.compare(temp, arrayForFile.get(j)) < 0; --j){
+            for(j = i -1; j > 0 && comparator.compare(temp, arrayForFile.get(j)) > 0; --j){
                 arrayForFile.set(j + 1, arrayForFile.get(j));
             }
             arrayForFile.set(j +1, temp);
