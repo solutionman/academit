@@ -40,10 +40,14 @@ public class Main {
 
 
             // sorting file
-            if (typeOfFile.equals("-i")) {
+            if (typeOfFile.equals("-i") && typeOfSorting.equals("-a")) {
                 SortingGeneric.sortArray(arrayFromFileInt, new IntegerComparator());
-            } else if (typeOfFile.equals("-s")) {
+            } else if (typeOfFile.equals("-i") && typeOfSorting.equals("-d")) {
+                SortingGeneric.sortArray(arrayFromFileInt, new IntegerComparator().reversed());
+            } else if (typeOfFile.equals("-s") && typeOfSorting.equals("-a")) {
                 SortingGeneric.sortArray(arrayFromFileSting, new StringComparator());
+            } else if (typeOfFile.equals("-s") && typeOfSorting.equals("-d")) {
+                SortingGeneric.sortArray(arrayFromFileSting, new StringComparator().reversed());
             } else {
                 System.out.println("Вы должны выбрать \"-a\" или \"-d\", файл не отсортирован.");
                 return;
@@ -52,7 +56,11 @@ public class Main {
             String nameOfOutputFile = args[1];
 
             // writing file
-            Writing.writeToFile(arrayFromFileInt, nameOfOutputFile);
+            if (typeOfFile.equals("-i")) {
+                Writing.writeToFile(arrayFromFileInt, nameOfOutputFile);
+            } else if (typeOfFile.equals("-s")) {
+                Writing.writeToFile(arrayFromFileSting, nameOfOutputFile);
+            }
 
 
         } catch (IOException e) {
