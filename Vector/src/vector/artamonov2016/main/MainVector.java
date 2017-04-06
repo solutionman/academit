@@ -31,7 +31,7 @@ public class MainVector {
         System.out.println("The sum of vectorArray and copyOfVectorArray: " + sumOfVectors.toString());
 
         Vector subtractionOfVectors = vectorArray.subtraction(vectorArray, copyOfVectorArray);
-        System.out.println("The subtruction of vectorArray and copyOfVectorArray: " + subtractionOfVectors.toString());
+        System.out.println("The subtraction of vectorArray and copyOfVectorArray: " + subtractionOfVectors.toString());
 
         Vector rotationOfVector = vectorArray.rotation(vectorArray);
         System.out.println("Rotated vector: " + rotationOfVector.toString());
