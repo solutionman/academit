@@ -8,7 +8,7 @@ public class Main {
 
         try {
 
-            if (args.length == 0 || args.length < 4 || args.length > 4 || args[0].equals("-h")) {
+            if (args.length != 4 || args[0].equals("-h")) {
                 System.out.println("Вы должны передать аргументы для программы.");
                 System.out.println("Программа должна запускаться с параметрами:");
                 System.out.println("Первый аргумент - наименование сортируемого файла. (с расширением letters.txt)");
