@@ -13,7 +13,7 @@ public class FromCSVtoHTML {
 
             String line;
 
-            out.write("<!DOCTYPE html><html lang=\"ru-RU\"><head><title>Page converted from csv file </title><meta charset=\"UTF-8\"></head><body><table border = \"1\">");
+            out.write("<!DOCTYPE html><html lang=\"ru-RU\"><head><title>Page converted from csv file </title><meta charset=\"UTF-8\"></head><body><table border=\"1\">");
 
 
             boolean shouldReplace = true;
@@ -67,8 +67,12 @@ public class FromCSVtoHTML {
 
             out.write("</table></body></html>");
 
-        } catch (Exception e) {
-            System.out.println("Something goes wrong.");
+        } catch (FileNotFoundException e) {
+            System.out.println("No file for reading.");
+        } catch (IOException ex){
+            System.out.println("IOException");
+        } catch (Exception e){
+            System.out.println("Exception");
         }
     }
 
