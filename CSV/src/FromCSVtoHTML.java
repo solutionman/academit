@@ -4,7 +4,7 @@ import java.io.*;
 
 public class FromCSVtoHTML {
 
-    private static void convertScvToHTML(String filenameCSV, String filenameHTML) {
+    public static void convertScvToHTML(String filenameCSV, String filenameHTML) {
         try (
                 BufferedReader in = new BufferedReader(new FileReader(filenameCSV));
 
@@ -74,13 +74,5 @@ public class FromCSVtoHTML {
         } catch (Exception e){
             System.out.println("Exception");
         }
-    }
-
-    public static void main(String[] args) {
-
-        String filenameCSV = "TableCSVForReading.csv";
-        String filenameHTML = "TableForHTMLOutput.html";
-
-        convertScvToHTML(filenameCSV, filenameHTML);
     }
 }
