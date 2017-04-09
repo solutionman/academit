@@ -9,11 +9,7 @@ public class Main {
         String filenameHTML = "TableForHTMLOutput.html";
 
         //FromCSVtoHTML.convertScvToHTML(filenameCSV, filenameHTML);
+        CSVtoHTML.convertCSVHTML(filenameCSV, filenameHTML);
 
-        try {
-            CSVtoHTML.convertCSVHTML(filenameCSV, filenameHTML);
-        } catch (FileNotFoundException e){
-            System.out.println("No file");
-        }
     }
 }

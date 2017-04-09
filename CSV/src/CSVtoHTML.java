@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class CSVtoHTML {
-    public static void convertCSVHTML (String filenameCSV, String filenameHTML) throws FileNotFoundException{
+    public static void convertCSVHTML (String filenameCSV, String filenameHTML){
 
         try(
                 BufferedReader in = new BufferedReader(new FileReader(filenameCSV));
