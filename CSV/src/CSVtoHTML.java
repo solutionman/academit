@@ -20,13 +20,17 @@ public class CSVtoHTML {
             out.println("<head>");
             out.println("<body>");
 
+            String line;
+            while ((line = in.readLine()) != null){
+                String lineForHTML = line.replace("&", "&amp").replace("<", "&lt");
+            }
 
             out.println("</body>");
             out.println("</html>");
         } catch(FileNotFoundException e){
             System.out.println("No file");
         } catch(IOException e){
-
+            System.out.println("IOException");
         }
     }
 }
