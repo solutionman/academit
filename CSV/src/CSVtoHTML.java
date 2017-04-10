@@ -22,23 +22,46 @@ public class CSVtoHTML {
             out.println("<table border=\"1\">");
 
             String line;
+
+            boolean replace = true;
+
             while ((line = in.readLine()) != null) {
 
-                out.println("<tr>");
-                out.println("<td>");
+                if(replace) {
+                    out.print("<tr>");
+                    out.print("<td>");
+                }
+
                 String lineForHTML = line.replace("&", "&amp").replace("<", "&lt").replace(">", "&gt");
 
                 String finalLineForHTML = "";
-                for (int i = 0; i < lineForHTML.length() - 1; ++i) {
-                    if (lineForHTML.charAt(i) == ',' && lineForHTML.charAt(i + 1) != '"') {
+
+                for (int i = 0; i < lineForHTML.length(); ++i) {
+                    if(i == 0 && lineForHTML.charAt(0) == '"'){
+                        replace = false;
+                    }
+
+                    if(lineForHTML.charAt(i) == ',' && i > 0 && lineForHTML.charAt(i - 1) == '"'){
+                        replace = true;
+                    }
+
+                    if(lineForHTML.charAt(i) == '"' && i > 0 && lineForHTML.charAt(i-1) == ','){
+                        replace = false;
+                    }
+
+
+                    if (lineForHTML.charAt(i) == ',' && replace) {
                         lineForHTML = lineForHTML.substring(0, i) + "</td><td>" + lineForHTML.substring(i + 1);
                     }
+
                 }
 
                 out.println(lineForHTML);
 
-                out.println("</td>");
-                out.println("</tr>");
+                if(replace) {
+                    out.print("</td>");
+                    out.println("</tr>");
+                }
             }
 
             out.println("</table>");
@@ -51,3 +74,4 @@ public class CSVtoHTML {
         }
     }
 }
+

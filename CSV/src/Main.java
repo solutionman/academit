@@ -7,9 +7,10 @@ public class Main {
 
         String filenameCSV = "TableCSVForReading.csv";
         String filenameHTML = "TableForHTMLOutput.html";
+        String filenameHTML2 = "TableForHTMLOutput2.html";
 
-        //FromCSVtoHTML.convertScvToHTML(filenameCSV, filenameHTML);
-        CSVtoHTML.convertCSVHTML(filenameCSV, filenameHTML);
+        FromCSVtoHTML.convertScvToHTML(filenameCSV, filenameHTML);
+        CSVtoHTML.convertCSVHTML(filenameCSV, filenameHTML2);
 
     }
 }
