@@ -17,48 +17,71 @@ public class CSVtoHTML {
             out.println();
             out.println("</title>");
             out.println("<meta charset=\"UTF-8\">");
-            out.println("<head>");
+            out.println("</head>");
             out.println("<body>");
             out.println("<table border=\"1\">");
 
             String line;
 
             boolean replace = true;
+            boolean addBr = false;
+            boolean keepOriginal = false;
+            String forCropping = "";
+            int startCropping;
+            int stopCropping;
+            String finalLineForHtml = "";
 
             while ((line = in.readLine()) != null) {
 
-                if(replace) {
+                if(!keepOriginal) {
                     out.print("<tr>");
                     out.print("<td>");
                 }
 
                 String lineForHTML = line.replace("&", "&amp").replace("<", "&lt").replace(">", "&gt");
 
-                String finalLineForHTML = "";
-
                 for (int i = 0; i < lineForHTML.length(); ++i) {
+
+
+
+
+                    // if "  at the beginning, keep the original chars
                     if(i == 0 && lineForHTML.charAt(0) == '"'){
-                        replace = false;
+                        keepOriginal = true;
+                        startCropping = i + 1;
+                        continue;
                     }
 
-                    if(lineForHTML.charAt(i) == ',' && i > 0 && lineForHTML.charAt(i - 1) == '"'){
-                        replace = true;
+                    // if ," somewhere in the middle of table, keep original
+                    if(lineForHTML.charAt(i) < lineForHTML.length() && lineForHTML.charAt(i) == ',' && lineForHTML.charAt(i + 1) == '"'){
+                        keepOriginal = true;
                     }
 
-                    if(lineForHTML.charAt(i) == '"' && i > 0 && lineForHTML.charAt(i-1) == ','){
-                        replace = false;
+                    // if ", somewhere in the table, begin to replace , with </td><td>
+                    if(i != 0 && lineForHTML.charAt(i) == ',' && lineForHTML.charAt(i - 1) == '"'){
+                        keepOriginal = false;
+                    }
+
+                    // return to loop, and keep original chars
+                    if(keepOriginal){
+                        //forCropping = forCropping + lineForHTML.charAt(i);
+                        continue;
                     }
 
 
-                    if (lineForHTML.charAt(i) == ',' && replace) {
+                    if (lineForHTML.charAt(i) == ',') {
                         lineForHTML = lineForHTML.substring(0, i) + "</td><td>" + lineForHTML.substring(i + 1);
                     }
 
+                    // add <br>
+                    if(lineForHTML.charAt(i) == lineForHTML.length() && lineForHTML.charAt(i) != '"'){
+                        lineForHTML = lineForHTML.substring(i) + "<br>";
+                    }
                 }
 
                 out.println(lineForHTML);
 
-                if(replace) {
+                if(!keepOriginal) {
                     out.print("</td>");
                     out.println("</tr>");
                 }
