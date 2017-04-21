@@ -22,10 +22,10 @@ public class Main {
                 frame.add(field, BorderLayout.CENTER);
 
                 JButton newGame = new JButton("New Game");
-                top.add(newGame);
+                field.add(newGame, BorderLayout.CENTER);
 
                 JButton button = new JButton("Click me");
-                field.add(button);
+                field.add(button, BorderLayout.CENTER);
 
             }
         });
