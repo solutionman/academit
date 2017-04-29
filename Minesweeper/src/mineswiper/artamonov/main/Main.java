@@ -2,6 +2,8 @@ package mineswiper.artamonov.main;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +21,14 @@ public class Main {
                 frame.getContentPane().add(panel);
                 GridBagConstraints c = new GridBagConstraints();
 
+                JButton newGame = new JButton("New Game");
+                c.ipady  = 0;
+                c.gridx = 10;
+                c.gridy = 10;
+                //c.weighty = 0.3;
+                c.anchor = GridBagConstraints.NORTH;
+                panel.add(newGame, c);
+
                 JButton[] buttons = new JButton[100];
                 for (int i = 0; i < 100; ++i) {
                     buttons[i] = new JButton(" ");
@@ -29,11 +39,21 @@ public class Main {
                     for (int j = 0; j < 10; ++j) {
                         c.gridx = i;
                         c.gridy = j;
+                        c.anchor = GridBagConstraints.CENTER;
+                        //c.weighty = 1;
                         panel.add(buttons[k], c);
                         ++k;
                     }
                 }
 
+                for(int i = 0; i < 100; ++i) {
+                    buttons[i].addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            JOptionPane.showMessageDialog(frame, "you press me");
+                        }
+                    });
+                }
             }
         });
 
