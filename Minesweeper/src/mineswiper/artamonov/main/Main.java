@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,6 +35,13 @@ public class Main {
                     buttons[i] = new JButton(" ");
                 }
 
+                int[] buttonsCondition = new int[100];
+                for(int i = 0; i < 100; ++i){
+                    buttonsCondition[i] = ThreadLocalRandom.current().nextInt(0, 2);
+                    System.out.printf("Button %d = %d", i, buttonsCondition[i]);
+                    System.out.println();
+                }
+
                 int k = 0;
                 for (int i = 0; i < 10; ++i) {
                     for (int j = 0; j < 10; ++j) {
@@ -50,7 +58,9 @@ public class Main {
                     buttons[i].addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            JOptionPane.showMessageDialog(frame, "you press me");
+                            //JOptionPane.showMessageDialog(frame, "you press me");
+                            System.out.println("button pressed");
+                            //System.out.println(buttonsCondition[i]);
                         }
                     });
                 }
