@@ -55,12 +55,15 @@ public class Main {
                 }
 
                 for(int i = 0; i < 100; ++i) {
+                    final Integer j = i;
                     buttons[i].addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             //JOptionPane.showMessageDialog(frame, "you press me");
+                            //Integer j = i;
                             System.out.println("button pressed");
-                            //System.out.println(buttonsCondition[i]);
+                            System.out.println(buttonsCondition[j]);
+                            //++j;
                         }
                     });
                 }
