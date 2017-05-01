@@ -22,13 +22,7 @@ public class Main {
                 frame.getContentPane().add(panel);
                 GridBagConstraints c = new GridBagConstraints();
 
-                JButton newGame = new JButton("New Game");
-                c.ipady  = 0;
-                c.gridx = 10;
-                c.gridy = 10;
-                //c.weighty = 0.3;
-                c.anchor = GridBagConstraints.NORTH;
-                panel.add(newGame, c);
+
 
                 JButton[] buttons = new JButton[100];
                 for (int i = 0; i < 100; ++i) {
@@ -61,12 +55,32 @@ public class Main {
                         public void actionPerformed(ActionEvent e) {
                             //JOptionPane.showMessageDialog(frame, "you press me");
                             //Integer j = i;
-                            System.out.println("button pressed");
+                            System.out.printf("button %d pressed, condition: ", j);
                             System.out.println(buttonsCondition[j]);
                             //++j;
+                            if(buttonsCondition[j] == 1){
+                                JOptionPane.showMessageDialog(frame, "Game Over");
+                            } else {
+                                buttons[j].setEnabled(false);
+                            }
                         }
                     });
                 }
+
+                JButton newGame = new JButton("New Game");
+                c.ipady  = 0;
+                c.gridx = 10;
+                c.gridy = 10;
+                //c.weighty = 0.3;
+                c.anchor = GridBagConstraints.NORTH;
+                panel.add(newGame, c);
+
+                newGame.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                    }
+                });
             }
         });
 
