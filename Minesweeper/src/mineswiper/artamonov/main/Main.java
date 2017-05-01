@@ -78,7 +78,14 @@ public class Main {
                 newGame.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
+                        for(int i = 0; i < 100 ; ++i){
+                            buttons[i].setEnabled(true);
+                        }
+                        for(int i = 0; i < 100; ++i){
+                            buttonsCondition[i] = ThreadLocalRandom.current().nextInt(0, 2);
+                            System.out.printf("Button %d = %d", i, buttonsCondition[i]);
+                            System.out.println();
+                        }
                     }
                 });
             }
