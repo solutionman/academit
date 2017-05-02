@@ -48,6 +48,10 @@ public class Main {
                     }
                 }
 
+                try {
+                    Icon blowed = new ImageIcon("blowed.jpg");
+                    Icon bomb = new ImageIcon("bomb.jpg");
+
                 for(int i = 0; i < 100; ++i) {
                     final Integer j = i;
                     buttons[i].addActionListener(new ActionListener() {
@@ -59,12 +63,21 @@ public class Main {
                             System.out.println(buttonsCondition[j]);
                             //++j;
                             if(buttonsCondition[j] == 1){
+                                for(int i = 0; i < 100; ++i){
+                                    buttons[i].setEnabled(false);
+                                }
+                                buttons[j].setIcon(blowed);
                                 JOptionPane.showMessageDialog(frame, "Game Over");
+
                             } else {
                                 buttons[j].setEnabled(false);
                             }
                         }
                     });
+                }
+
+                } catch(Exception e){
+                    System.out.println("No image");
                 }
 
                 JButton newGame = new JButton("New Game");
