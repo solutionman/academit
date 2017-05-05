@@ -79,64 +79,112 @@ public class Main {
                                             buttons[i].setIcon(bomb);
                                         }
 
-                                        //   -11  -1    +9
-                                        //   -10 button +10
-                                        //   -9   +1    +11
 
-                                        if (buttonsCondition[i] == 0) {
-                                            int count = 0;
-                                            if (buttonsCondition[i - 1] == 1) {
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i + 1] == 1) {
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i + 10] == 1) {
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i - 10] == 1){
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i + 9] == 1){
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i - 11] == 1){
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i + 11] == 1){
-                                                ++count;
-                                            }
-                                            if (buttonsCondition[i - 9] == 1){
-                                                ++count;
-                                            }
-
-                                            if(count == 1){
-                                                buttons[i].setIcon(one);
-                                            } else if (count == 2){
-                                                buttons[i].setIcon(two);
-                                            } else if (count == 3){
-                                                buttons[i].setIcon(three);
-                                            } else if (count == 4){
-                                                buttons[i].setIcon(four);
-                                            } else if (count == 5){
-                                                buttons[i].setIcon(five);
-                                            } else if (count == 6){
-                                                buttons[i].setIcon(six);
-                                            } else if (count == 7){
-                                                buttons[i].setIcon(seven);
-                                            } else if (count ==8){
-                                                buttons[i].setIcon(eight);
-                                            } else {
-                                                buttons[i].setIcon(empty);
-                                            }
-                                            
-                                        }
                                     }
                                     buttons[j].setIcon(blowed);
                                     JOptionPane.showMessageDialog(frame, "Game Over");
 
                                 } else {
                                     buttons[j].setEnabled(false);
+
+                                    //   -11  -1    +9
+                                    //   -10 button +10
+                                    //   -9   +1    +11
+
+                                    if (buttonsCondition[j] == 0) {
+                                        int count = 0;
+
+                                        if (j == 0){
+                                            if (buttonsCondition[j + 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 1] == 1) {
+                                                ++count;
+                                            }
+                                        }else if (j == 99){
+                                            if (buttonsCondition[j - 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 10] == 1) {
+                                                ++count;
+                                            }
+                                        } else if(j == 90){
+                                            if (buttonsCondition[j - 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 1] == 1) {
+                                                ++count;
+                                            }
+                                        } else if (j == 9){
+                                            if (buttonsCondition[j - 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 10] == 1) {
+                                                ++count;
+                                            }
+                                        } else if (j == 10 || j == 20 || j == 30 || j == 40 || j == 50){
+
+                                        } else {
+                                            if (buttonsCondition[j - 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 9] == 1) {
+                                                ++count;
+                                            }
+                                        }
+
+
+                                        if (count == 1) {
+                                            buttons[j].setIcon(one);
+                                        } else if (count == 2) {
+                                            buttons[j].setIcon(two);
+                                        } else if (count == 3) {
+                                            buttons[j].setIcon(three);
+                                        } else if (count == 4) {
+                                            buttons[j].setIcon(four);
+                                        } else if (count == 5) {
+                                            buttons[j].setIcon(five);
+                                        } else if (count == 6) {
+                                            buttons[j].setIcon(six);
+                                        } else if (count == 7) {
+                                            buttons[j].setIcon(seven);
+                                        } else if (count == 8) {
+                                            buttons[j].setIcon(eight);
+                                        } else {
+                                            buttons[j].setIcon(empty);
+                                        }
+
+                                    }
                                 }
                             }
                         });
