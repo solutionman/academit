@@ -87,14 +87,27 @@ public class Main {
                                 } else {
                                     buttons[j].setEnabled(false);
 
+
+                                    //  0 10 20 30  .. 90
+                                    //  1 11 21 31  .. 91
+                                    //  2 12 22 32  .. 92
+                                    //  3 13 23 33  .. 93
+                                    //  4 14 24 34  .. 94
+                                    //  .................
+                                    //  9 19 29 39  .. 99
+
+
                                     //   -11  -1    +9
                                     //   -10 button +10
                                     //   -9   +1    +11
 
+
+                                    //   0    +10
+                                    //  +1    +11
                                     if (buttonsCondition[j] == 0) {
                                         int count = 0;
 
-                                        if (j == 0){
+                                        if (j == 0) {
                                             if (buttonsCondition[j + 10] == 1) {
                                                 ++count;
                                             }
@@ -104,7 +117,10 @@ public class Main {
                                             if (buttonsCondition[j + 1] == 1) {
                                                 ++count;
                                             }
-                                        }else if (j == 99){
+
+                                            //  -11  -1
+                                            //  -10   99
+                                        } else if (j == 99) {
                                             if (buttonsCondition[j - 1] == 1) {
                                                 ++count;
                                             }
@@ -114,7 +130,10 @@ public class Main {
                                             if (buttonsCondition[j - 10] == 1) {
                                                 ++count;
                                             }
-                                        } else if(j == 90){
+
+                                            //  -10  90
+                                            //  -9   +1
+                                        } else if (j == 90) {
                                             if (buttonsCondition[j - 10] == 1) {
                                                 ++count;
                                             }
@@ -124,7 +143,10 @@ public class Main {
                                             if (buttonsCondition[j + 1] == 1) {
                                                 ++count;
                                             }
-                                        } else if (j == 9){
+
+                                            //  -1   +9
+                                            //   9   +10
+                                        } else if (j == 9) {
                                             if (buttonsCondition[j - 1] == 1) {
                                                 ++count;
                                             }
@@ -134,8 +156,100 @@ public class Main {
                                             if (buttonsCondition[j + 10] == 1) {
                                                 ++count;
                                             }
-                                        } else if (j == 10 || j == 20 || j == 30 || j == 40 || j == 50){
+                                            if (buttonsCondition[j + 11] == 1) {
+                                                ++count;
+                                            }
 
+                                            //  10 20 30 40 50 60 70 80
+
+                                            //     -10 button +10
+                                            //     -9   +1    +11
+                                        } else if (j == 10 || j == 20 || j == 30 || j == 40 || j == 50 || j == 60 || j == 70 || j == 80) {
+                                            if (buttonsCondition[j - 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 11] == 1) {
+                                                ++count;
+                                            }
+
+                                            //  19 29 39 49 59 69 79 89
+
+                                            //     -11  -1    +9
+                                            //     -10 button +10
+                                        } else if (j == 19 || j == 29 || j == 39 || j == 49 || j == 59 || j == 69 || j == 79 || j == 89) {
+                                            if (buttonsCondition[j - 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 10] == 1) {
+                                                ++count;
+                                            }
+
+                                            //  1 2 3 4 5 6 7 8
+
+                                            //     -1    +9
+                                            //   button +10
+                                            //     +1    +11
+                                        } else if (j == 1 || j == 2 || j == 3 || j == 4 || j == 5 || j == 6 || j == 7 || j == 8) {
+                                            if (buttonsCondition[j - 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 1] == 1) {
+                                                ++count;
+                                            }
+
+                                            //  91 92 93 94 95 96 97 98
+
+                                            //      -11  -1
+                                            //      -10 button
+                                            //      -9   +1
+                                        } else if (j == 91 || j == 92 || j == 93 || j == 94 || j == 95 || j == 96 || j == 97 || j == 98) {
+                                            if (buttonsCondition[j - 1] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 11] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 10] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j - 9] == 1) {
+                                                ++count;
+                                            }
+                                            if (buttonsCondition[j + 1] == 1) {
+                                                ++count;
+                                            }
+
+
+                                           //    -11  -1    +9
+                                           //    -10 button +10
+                                           //    -9   +1    +11
                                         } else {
                                             if (buttonsCondition[j - 1] == 1) {
                                                 ++count;
