@@ -298,6 +298,28 @@ public class Main {
                                             buttons[j].setIcon(empty);
                                         }
 
+                                        // Check is you win the game
+                                        int freeSpots = 0;
+                                        int pressedButtons = 0;
+                                        for(int k = 0; k < 100; ++k){
+                                            if(buttonsCondition[k] == 0){
+                                                ++freeSpots;
+                                            }
+                                            if(buttonsCondition[k] == 0 && buttons[k].isEnabled()){
+                                                ++pressedButtons;
+                                            }
+
+                                        }
+                                        if(freeSpots == pressedButtons){
+                                            JOptionPane.showMessageDialog(frame, "You Win !!!");
+                                            for(int m = 0; m < 100; ++m){
+                                                if (buttonsCondition[m] == 1){
+                                                    buttons[m].setIcon(bomb);
+                                                }
+                                                buttons[m].setEnabled(false);
+                                            }
+                                        }
+
                                     }
                                 }
                             }
