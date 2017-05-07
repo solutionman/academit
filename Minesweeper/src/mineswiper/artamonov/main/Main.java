@@ -12,7 +12,7 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                JFrame frame = new JFrame("Mineswiper");
+                JFrame frame = new JFrame("Minesweeper");
                 frame.setSize(800, 500);
                 frame.setResizable(false);
                 frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +61,12 @@ public class Main {
                         }
                     }
 
+                    JTextField bombsCount = new JTextField();
+                    c.gridx = 10;
+                    c.gridy = 11;
+                    c.anchor = GridBagConstraints.CENTER;
+                    bombsCount.setEditable(false);
+                    panel.add(bombsCount, c);
 
                     for (int i = 0; i < 100; ++i) {
                         final Integer j = i;
@@ -72,6 +78,8 @@ public class Main {
                                 System.out.printf("button %d pressed, condition: ", j);
                                 System.out.println(buttonsCondition[j]);
                                 //++j;
+
+                                // guess was wrong - bomb blows
                                 if (buttonsCondition[j] == 1) {
                                     for (int i = 0; i < 100; ++i) {
                                         buttons[i].setEnabled(false);
@@ -84,6 +92,7 @@ public class Main {
                                     buttons[j].setIcon(blowed);
                                     JOptionPane.showMessageDialog(frame, "Game Over");
 
+                                // guess was right - continue game
                                 } else {
                                     buttons[j].setEnabled(false);
 
@@ -301,6 +310,7 @@ public class Main {
                                         // Check is you win the game
                                         int freeSpots = 0;
                                         int pressedButtons = 0;
+                                        int spotsLeft = 0;
                                         for(int k = 0; k < 100; ++k){
                                             if(buttonsCondition[k] == 0){
                                                 ++freeSpots;
@@ -310,6 +320,12 @@ public class Main {
                                             }
 
                                         }
+
+                                        // counting free spots
+                                        spotsLeft = freeSpots - pressedButtons;
+                                        System.out.println("spots left: " + spotsLeft);
+                                        bombsCount.setText("spots left: " + Integer.toString(spotsLeft));
+
                                         if(freeSpots == pressedButtons){
                                             JOptionPane.showMessageDialog(frame, "You Win !!!");
                                             for(int m = 0; m < 100; ++m){
