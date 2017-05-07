@@ -305,7 +305,7 @@ public class Main {
                                             if(buttonsCondition[k] == 0){
                                                 ++freeSpots;
                                             }
-                                            if(buttonsCondition[k] == 0 && buttons[k].isEnabled()){
+                                            if(buttonsCondition[k] == 0 && !buttons[k].isEnabled()){
                                                 ++pressedButtons;
                                             }
 
