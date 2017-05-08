@@ -42,11 +42,15 @@ public class Main {
                         buttons[i].setIcon(empty);
                     }
 
+                    int spaces = 0;  // amount of spaces on start of the game
                     int[] buttonsCondition = new int[100];
                     for (int i = 0; i < 100; ++i) {
                         buttonsCondition[i] = ThreadLocalRandom.current().nextInt(0, 2);
                         System.out.printf("Button %d = %d", i, buttonsCondition[i]);
                         System.out.println();
+                        if(buttonsCondition[i] == 0){
+                            ++spaces;
+                        }
                     }
 
                     int k = 0;
@@ -67,6 +71,7 @@ public class Main {
                     c.anchor = GridBagConstraints.CENTER;
                     bombsCount.setEditable(false);
                     panel.add(bombsCount, c);
+                    bombsCount.setText(Integer.toString(spaces));
 
                     for (int i = 0; i < 100; ++i) {
                         final Integer j = i;
@@ -310,7 +315,7 @@ public class Main {
                                         // Check is you win the game
                                         int freeSpots = 0;
                                         int pressedButtons = 0;
-                                        int spotsLeft = 0;
+                                        int spotsLeft;
                                         for(int k = 0; k < 100; ++k){
                                             if(buttonsCondition[k] == 0){
                                                 ++freeSpots;
@@ -324,6 +329,7 @@ public class Main {
                                         // counting free spots
                                         spotsLeft = freeSpots - pressedButtons;
                                         System.out.println("spots left: " + spotsLeft);
+                                        // TODO have to find out, why it works only after another new game
                                         bombsCount.setText("spots left: " + Integer.toString(spotsLeft));
 
                                         if(freeSpots == pressedButtons){
