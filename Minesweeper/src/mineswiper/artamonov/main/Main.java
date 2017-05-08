@@ -71,7 +71,7 @@ public class Main {
                     c.anchor = GridBagConstraints.CENTER;
                     bombsCount.setEditable(false);
                     panel.add(bombsCount, c);
-                    bombsCount.setText(Integer.toString(spaces));
+                    bombsCount.setText("spots left: " + Integer.toString(spaces));
 
                     for (int i = 0; i < 100; ++i) {
                         final Integer j = i;
