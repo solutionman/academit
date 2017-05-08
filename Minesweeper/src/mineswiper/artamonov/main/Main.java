@@ -329,7 +329,6 @@ public class Main {
                                         // counting free spots
                                         spotsLeft = freeSpots - pressedButtons;
                                         System.out.println("spots left: " + spotsLeft);
-                                        // TODO have to find out, why it works only after another new game
                                         bombsCount.setText("spots left: " + Integer.toString(spotsLeft));
 
                                         if(freeSpots == pressedButtons){
@@ -364,12 +363,16 @@ public class Main {
                                 buttons[i].setEnabled(true);
                                 buttons[i].setIcon(empty);
                             }
+                            int spaces = 0;
                             for (int i = 0; i < 100; ++i) {
                                 buttonsCondition[i] = ThreadLocalRandom.current().nextInt(0, 2);
                                 System.out.printf("Button %d = %d", i, buttonsCondition[i]);
-
                                 System.out.println();
+                                if (buttonsCondition[i] == 0){
+                                    ++spaces;
+                                }
                             }
+                            bombsCount.setText("spaces left: " + Integer.toString(spaces));
                         }
                     });
 
