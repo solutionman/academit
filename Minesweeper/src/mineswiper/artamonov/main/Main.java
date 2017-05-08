@@ -24,17 +24,17 @@ public class Main {
 
 
                 try {
-                    Icon blowed = new ImageIcon("blowed.jpg");
-                    Icon bomb = new ImageIcon("bomb.jpg");
-                    Icon empty = new ImageIcon("empty.jpg");
-                    Icon one = new ImageIcon("one.jpg");
-                    Icon two = new ImageIcon("two.jpg");
-                    Icon three = new ImageIcon("three.jpg");
-                    Icon four = new ImageIcon("four.jpg");
-                    Icon five = new ImageIcon("five.jpg");
-                    Icon six = new ImageIcon("six.jpg");
-                    Icon seven = new ImageIcon("seven.jpg");
-                    Icon eight = new ImageIcon("eight.jpg");
+                    Icon blowed = new ImageIcon("Minesweeper/pics/blowed.jpg");
+                    Icon bomb = new ImageIcon("Minesweeper/pics/bomb.jpg");
+                    Icon empty = new ImageIcon("Minesweeper/pics/empty.jpg");
+                    Icon one = new ImageIcon("Minesweeper/pics/one.jpg");
+                    Icon two = new ImageIcon("Minesweeper/pics/two.jpg");
+                    Icon three = new ImageIcon("Minesweeper/pics/three.jpg");
+                    Icon four = new ImageIcon("Minesweeper/pics/four.jpg");
+                    Icon five = new ImageIcon("Minesweeper/pics/five.jpg");
+                    Icon six = new ImageIcon("Minesweeper/pics/six.jpg");
+                    Icon seven = new ImageIcon("Minesweeper/pics/seven.jpg");
+                    Icon eight = new ImageIcon("Minesweeper/pics/eight.jpg");
 
                     JButton[] buttons = new JButton[100];
                     for (int i = 0; i < 100; ++i) {
