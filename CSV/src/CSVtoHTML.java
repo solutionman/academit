@@ -42,9 +42,6 @@ public class CSVtoHTML {
 
                 for (int i = 0; i < lineForHTML.length(); ++i) {
 
-
-
-
                     // if "  at the beginning, keep the original chars
                     if(i == 0 && lineForHTML.charAt(0) == '"'){
                         keepOriginal = true;
